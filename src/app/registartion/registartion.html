@@ -1,0 +1,37 @@
+<h2>Registration Form</h2>
+<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+    <!-- Name -->
+    <div>
+        <label>Name:</label>
+        <input type="text" name="name" [(ngModel)]="user.name" required />
+        <div *ngIf="regForm.submitted && !user.name" style="color:red;">
+            Name is required
+        </div>
+    </div>
+    <br>
+    <!-- Email -->
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" [(ngModel)]="user.email" required email />
+        <div *ngIf="regForm.submitted && !user.email" style="color:red;">
+            Email is required
+        </div>
+        <div *ngIf="regForm.controls['email']?.invalid && regForm.controls['email']?.touched" style="color:red;">
+            Invalid email format
+        </div>
+    </div>
+    <br>
+    <!-- Password -->
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" />
+        <div *ngIf="regForm.submitted && !user.password" style="color:red;">
+            Password is required  ubvgfcf
+        </div>
+        <div *ngIf="regForm.controls['password']?.errors?.['minlength']" style="color:red;">
+            Minimum 6 characters required
+        </div>
+    </div>
+    <br>
+    <button type="submit">Register</button>
+</form>
