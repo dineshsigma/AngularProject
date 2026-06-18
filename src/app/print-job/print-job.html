@@ -1,0 +1,80 @@
+<div class="container mt-4">
+
+  <h3 class="text-center mb-3">Print Jobs</h3>
+
+  <!-- ✅ Search -->
+  <input 
+    type="text" 
+    class="form-control mb-3" 
+    placeholder="Search by IAN, Status, File Name..."
+    [(ngModel)]="searchText"
+    (input)="filterJobs()">
+
+  <!-- ✅ Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover shadow">
+      
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>IAN</th>
+          <th>Version</th>
+          <th>InspectionReportNo</th>
+          <th>InspectionTemplate</th>
+          <th>Status</th>
+          <th>File Name</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let job of paginatedJobs">
+          <td>{{ job.id }}</td>
+          <td>{{ job.ian }}</td>
+          <td>{{ job.version }}</td>
+          <td>{{ job.inspectionReportNo }}</td>
+           <td>{{ job.inspectionTemplate }}</td>
+
+          <td>
+            <span
+              [ngClass]="{
+                'badge bg-success': job.status === 'SUCCESS',
+                'badge bg-danger': job.status === 'FAILED',
+                'badge bg-warning': job.status !== 'SUCCESS' && job.status !== 'FAILED'
+              }">
+              {{ job.status }}
+            </span>
+          </td>
+
+          <td>{{ job.file_name }}</td>
+          <td>{{ job.createdAt | date:'short' }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- ✅ Pagination -->
+  <div class="d-flex justify-content-center mt-3">
+
+    <button 
+      class="btn btn-secondary me-2"
+      (click)="page = page - 1"
+      [disabled]="page === 1">
+      Prev
+    </button>
+
+    <span class="align-self-center">
+      Page {{ page }} of {{ totalPages() }}
+    </span>
+
+    <button 
+      class="btn btn-secondary ms-2"
+      (click)="page = page + 1"
+      [disabled]="page === totalPages()">
+      Next
+    </button>
+
+  </div>
+
+</div>

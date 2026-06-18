@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Registartion } from './registartion/registartion';
 import { Parent } from './parent/parent';
 import { Employee } from './employee/employee';
+import { PrintJob } from './print-job/print-job';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'about', component: About },
   { path: 'registartion', component: Registartion },
   { path: 'parent', component: Parent },
-  { path: 'employee', component: Employee }
+  { path: 'employee', component: Employee },
+   { path: 'printform', component: PrintJob }
 ];
 
 @NgModule({

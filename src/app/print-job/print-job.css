@@ -1,0 +1,15 @@
+table {
+  font-size: 14px;
+}
+
+thead th {
+  text-align: center;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 12px;
+}
