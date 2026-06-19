@@ -6,6 +6,7 @@ import { Registartion } from './registartion/registartion';
 import { Parent } from './parent/parent';
 import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
+import { Login } from './login/login';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'parent', pathMatch: 'full' },
@@ -14,7 +15,8 @@ export const routes: Routes = [
   { path: 'registartion', component: Registartion },
   { path: 'parent', component: Parent },
   { path: 'employee', component: Employee },
-  { path: 'printform', component: PrintJob }
+  { path: 'printform', component: PrintJob },
+  { path: 'login', component: Login }
 
 ];
 
