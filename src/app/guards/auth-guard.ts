@@ -8,9 +8,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   const token = localStorage.getItem('accessToken');
 
   if (token) {
-    return true;   // ✅ allow access
+    return true;  
   } else {
-    router.navigate(['/login']);  // ❌ redirect
+    router.navigate(['/login']); 
     return false;
   }
 };
