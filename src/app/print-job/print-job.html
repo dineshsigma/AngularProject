@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <h3 class="text-center mb-3">Print Jobs</h3>
-  <!-- ✅ Search -->
+
   <input 
     type="text" 
     class="form-control mb-3" 
@@ -8,7 +8,6 @@
     [(ngModel)]="searchText"
     (input)="filterJobs()">
 
-  <!-- ✅ Table -->
   <div class="table-responsive">
     <table class="table table-bordered table-striped table-hover shadow">
       <thead class="table-dark">
@@ -46,7 +45,6 @@
       </tbody>
     </table>
   </div>
-  <!-- ✅ Pagination -->
   <div class="d-flex justify-content-center mt-3">
     <button 
       class="btn btn-secondary me-2"

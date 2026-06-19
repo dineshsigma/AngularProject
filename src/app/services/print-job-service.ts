@@ -11,9 +11,9 @@ export class PrintJobService {
   constructor(private http: HttpClient) {}
 
   getAllJobs(): Observable<any[]> {
+     const token = localStorage.getItem('accessToken'); // ✅ Get token
     const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW5lc2hAZ21haWwuY29tIiwiaWF0IjoxNzgxNzcwODA3LCJleHAiOjE3ODE3NzQ0MDd9.SCLuuDnfZ6P0UE-PIsPkogpkiBN5IpUXsMSW9ZVBo-s',
-      Cookie: 'JSESSIONID=F39537FD040D498D7519E64349D6B865'
+      Authorization: `Bearer ${token}`
     });
 
     return this.http.get<any[]>(this.apiUrl, { headers });
