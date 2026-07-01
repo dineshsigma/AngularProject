@@ -1,0 +1,16 @@
+<p>ng-if works!</p>
+
+<div class="row">
+    <div class="col-3">
+        <div class="bg-success p-3" *ngIf="div1Viasiable">
+            DIV1
+        </div>
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-3 text-center">
+       <div class="btn btn-danger" (click) = "hideDiv()">Hide</div>
+        <div class="btn btn-success mx-3" (click) = "showDiv()">Show</div>
+    </div>
+</div>
