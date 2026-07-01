@@ -22,6 +22,7 @@
             <table class="table">
   <thead>
     <tr>
+      <th scope="col">Sr.no</th>
       <th scope="col">EmpId</th>
       <th scope="col">Name</th>
       <th scope="col">City</th>
@@ -29,7 +30,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let employee of employeeArray">
+    <tr *ngFor = "let employee of employeeArray; let srno= index" >
+      <td>{{srno+1}}</td>
       <td>{{employee.empId}}</td>
       <td>{{employee.name}}</td>
       <td>{{employee.city}}</td>
