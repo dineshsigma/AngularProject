@@ -7,6 +7,7 @@ import { Parent } from './parent/parent';
 import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
+import { DataBinding } from './data-binding/data-binding';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'parent', pathMatch: 'full' },

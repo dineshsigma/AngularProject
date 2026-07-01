@@ -1,0 +1,14 @@
+
+
+PART-3
+How to declare varibles / statte in component
+
+what is data Binding?
+
+what is one way databinding
+    1.interpolation
+    2.property binding
+    3.event binding
+
+ Two way data binding
+   using ngModel directive   

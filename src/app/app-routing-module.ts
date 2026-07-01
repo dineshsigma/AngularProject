@@ -9,6 +9,7 @@ import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
 import { authGuard } from './guards/auth-guard';
+import { DataBinding } from './data-binding/data-binding';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,11 +19,13 @@ const routes: Routes = [
   { path: 'about', component: About },
   { path: 'registartion', component: Registartion },
   { path: 'login', component: Login },
+  { path : 'data-binding',component:DataBinding},
 
   // ✅ Protected
   { path: 'parent', component: Parent, canActivate: [authGuard] },
   { path: 'employee', component: Employee, canActivate: [authGuard] },
-  { path: 'printform', component: PrintJob, canActivate: [authGuard] }
+  { path: 'printform', component: PrintJob, canActivate: [authGuard] },
+  
 ];
 
 @NgModule({
