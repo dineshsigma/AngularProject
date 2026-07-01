@@ -1,0 +1,44 @@
+<p>ng-for works!</p>
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let city of cityList">
+                <span>
+                    {{city}}
+                </span>
+
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-5">
+        <button *ngFor="let city of cityList" class="btn btn-success mx-1">
+            {{city}}
+        </button>
+
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">EmpId</th>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Mobile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let employee of employeeArray">
+      <td>{{employee.empId}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.city}}</td>
+      <td>{{employee.mobile}}</td>
+    </tr>
+   
+    
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
