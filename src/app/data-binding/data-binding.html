@@ -11,7 +11,47 @@
     <div class="col-6">
         {{lastName}}
     </div> 
+    2.property Binding
     <div class="col-6">
         <input type="text"  [value] = "firstName" name = "" id ="">
     </div> 
+    <br>
+    <input type="text" [placeholder] = "myPlaceHolder">
+
+    <div [class]= "div1ClassName" style="width:100px;height:100px"></div>
+
+    3.Event Binding
+    <div class="row-6">
+       <button class="btn btn-success" (click)="showWelcomeMessage()">show message</button>
+    
+    </div>
+    <div class="col-3">
+        <select change = "onCityChange()">
+            <option value="puna">Puna</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Tiruparhi">Tiruparhi</option>
+            <option value="Srikalahasti">Srikalahasti</option>
+
+        </select>
+    </div>
+</div>
+
+2. Two way data binding
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <select [(ngModel)] = "selectedCity">
+            <option value="puna">Puna</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Tiruparhi">Tiruparhi</option>
+            <option value="Srikalahasti">Srikalahasti</option>
+
+        </select>
+        selectedCity : {{selectedCity}}
+    </div>
 </div>
