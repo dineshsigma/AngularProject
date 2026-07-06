@@ -7,7 +7,7 @@ import { NgFor } from './ng-for/ng-for';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,NgFor],
+  imports: [RouterOutlet,RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

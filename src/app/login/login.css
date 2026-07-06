@@ -1,0 +1,70 @@
+.login-wrapper{
+  height:100vh;
+  background:#e5e5e5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-card{
+  width:1000px;
+  height:650px;
+  border-radius:25px;
+  overflow:hidden;
+}
+
+.register-section{
+  background:linear-gradient(
+      180deg,
+      #291347,
+      #9b27b0
+  );
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.custom-input{
+  height:55px;
+  background:#f1f1f1;
+}
+
+.login-btn{
+  background:#9b27b0;
+  color:white;
+  font-weight:bold;
+}
+
+.register-btn{
+  border:2px solid white;
+  color:white;
+  border-radius:25px;
+  padding:10px 30px;
+}
+
+.register-btn:hover{
+  background:white;
+  color:#9b27b0;
+}
+
+.toast-container .ngx-toastr {
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    font-size: 14px;
+    padding: 15px !important;
+}
+
+.toast-success {
+    background-color: #28a745 !important;
+}
+
+.toast-error {
+    background-color: #dc3545 !important;
+}
+
+.toast-warning {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+}
