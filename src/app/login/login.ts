@@ -32,32 +32,34 @@ export class Login implements OnInit {
   }
 
   login() {
-    if (this.loginForm.invalid) {
-      return;
-    }
-    this.authService.login(this.loginForm.value)
-      .subscribe({
-        next: (res: any) => {
-          localStorage.setItem(
-            'token',
-            res.accessToken
-          );
 
-          this.toastr.success(
-            'Login Successful',
-            'Success'
-          );
+     this.router.navigate(['/dashboard']);
+    // if (this.loginForm.invalid) {
+    //   return;
+    // }
+    // this.authService.login(this.loginForm.value)
+    //   .subscribe({
+    //     next: (res: any) => {
+    //       localStorage.setItem(
+    //         'token',
+    //         res.accessToken
+    //       );
 
-        },
-        error: (err: any) => {
-          this.toastr.error(
-            err.error.message,
-            'Invalid Password'
-          );
-        }
-      });
+    //       this.toastr.success(
+    //         'Login Successful',
+    //         'Success'
+    //       );
+
+    //     },
+    //     error: (err: any) => {
+    //       this.toastr.error(
+    //         err.error.message,
+    //         'Invalid Password'
+    //       );
+    //     }
+    //   });
   }
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/registartion']);
   }
 }

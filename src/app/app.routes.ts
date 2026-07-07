@@ -8,6 +8,7 @@ import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
 import { DataBinding } from './data-binding/data-binding';
+import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'parent', pathMatch: 'full' },
@@ -17,7 +18,8 @@ export const routes: Routes = [
   { path: 'parent', component: Parent },
   { path: 'employee', component: Employee },
   { path: 'printform', component: PrintJob },
-  { path: 'login', component: Login }
+  { path: 'login', component: Login },
+   { path: 'dashboard', component: Dashboard },
 
 ];
 
