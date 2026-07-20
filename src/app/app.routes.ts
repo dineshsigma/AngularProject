@@ -10,6 +10,7 @@ import { Login } from './login/login';
 import { DataBinding } from './data-binding/data-binding';
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
+import { AddProduct } from './pages/add-product/add-product';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -28,6 +29,14 @@ export const routes: Routes = [
       {
         path: 'products',
         component: Products
+      },
+      {
+        path: 'add-products',
+        component: AddProduct
+      },
+       {
+        path:'edit-product/:id',
+        component:AddProduct
       }
     ]
   }

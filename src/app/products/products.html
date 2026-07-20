@@ -2,7 +2,7 @@
 
     <div class="page-header">
         <h2>Product Management</h2>
-        <button class="add-btn">
+        <button class="add-btn" (click) = "addProduct()">
             <i class="fas fa-plus"></i>
             Add Product
         </button>
@@ -41,11 +41,11 @@
                     </td>
 
                     <td>
-                        <button class="edit-btn">
+                        <button class="edit-btn" (click) = "editProduct(product)">
                             <i class="fas fa-edit"></i>
                         </button>
 
-                        <button class="delete-btn">
+                        <button class="delete-btn" (click)="openDeleteModal(product)">
                             <i class="fas fa-trash"></i>
                         </button>
                     </td>
@@ -76,6 +76,45 @@
     </button>
 
 </div>
+    </div>
+
+</div>
+
+<!-- Delete Modal -->
+
+<div
+    class="modal-overlay"
+    *ngIf="showDeleteModal">
+
+    <div class="modal-container">
+
+        <div class="modal-icon">
+            <i class="fas fa-trash-alt"></i>
+        </div>
+
+        <h3>Delete Product</h3>
+
+        <p>
+            Are you sure you want to delete
+            <strong>{{ selectedProduct?.name }}</strong> ?
+        </p>
+
+        <div class="button-group">
+
+            <button
+                class="cancel-btn"
+                (click)="closeDeleteModal()">
+                Cancel
+            </button>
+
+            <button
+                class="confirm-delete-btn"
+                (click)="deleteProduct()">
+                Delete
+            </button>
+
+        </div>
+
     </div>
 
 </div>

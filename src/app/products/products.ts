@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
+import { Router } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 @Component({
@@ -9,6 +10,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './products.css',
 })
 export class Products {
+
+  constructor(private router: Router) {
+
+  }
+
+
+  showDeleteModal = false;
+  selectedProduct: any = null;
+  isEditMode = false;
+
 
   products = [
     {
@@ -79,7 +90,6 @@ export class Products {
     return this.products.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
-
   get totalPages(): number {
     return Math.ceil(this.products.length / this.itemsPerPage);
   }
@@ -96,4 +106,55 @@ export class Products {
       this.currentPage--;
     }
   }
+
+  addProduct() {
+    this.router.navigate(['/add-products']);
+  }
+
+
+  openDeleteModal(product: any): void {
+    this.selectedProduct = product;
+    this.showDeleteModal = true;
+  }
+
+  closeDeleteModal(): void {
+    this.showDeleteModal = false;
+    this.selectedProduct = null;
+  }
+
+  deleteProduct(): void {
+
+    this.products = this.products.filter(
+      p => p.id !== this.selectedProduct.id
+    );
+
+    this.closeDeleteModal();
+  }
+
+  editProduct(product: any) {
+    console.log("product", product);
+
+    this.router.navigate(
+      ['/edit-product', product.id]
+    );
+
+
+  }
+
+  
+updateProduct(updatedProduct: any) {
+
+    const index = this.products.findIndex(
+      product => product.id === updatedProduct.id
+    );
+
+    if (index !== -1) {
+
+      this.products[index] = updatedProduct;
+
+    }
+
+  }
+
+
 }

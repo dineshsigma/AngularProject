@@ -13,6 +13,7 @@ import { DataBinding } from './data-binding/data-binding';
 import { NgIf } from './ng-if/ng-if'
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
+import { AddProduct } from './pages/add-product/add-product';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,6 +36,14 @@ const routes: Routes = [
       {
         path: 'products',
         component: Products
+      },
+      {
+        path:'add-products',
+        component:AddProduct
+      },
+      {
+        path:'edit-product/:id',
+        component:AddProduct
       }
     ]
   },
