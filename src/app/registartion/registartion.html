@@ -1,37 +1,88 @@
-<h2>Registration Form</h2>
-<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
-    <!-- Name -->
-    <div>
-        <label>Name:</label>
-        <input type="text" name="name" [(ngModel)]="user.name" required />
-        <div *ngIf="regForm.submitted && !user.name" style="color:red;">
-            Name is required
+<div class="container-fluid vh-100 register-bg">
+
+    <div class="row h-100 justify-content-center align-items-center">
+
+        <div class="col-lg-10">
+
+            <div class="card register-card">
+
+                <div class="row g-0">
+
+                    <!-- Left Section -->
+
+                    <div class="col-lg-6">
+
+                        <div class="form-section">
+
+                            <h1 class="title">
+                                Register
+                            </h1>
+
+                            <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                                <input type="email" class="form-control custom-input" placeholder="Email"
+                                    formControlName="email">
+
+                                <input type="password" class="form-control custom-input" placeholder="Password"
+                                    formControlName="password">
+
+                                <input type="text" class="form-control custom-input" placeholder="Mobile Number"
+                                    formControlName="mobileNumber">
+
+                                <select class="form-select custom-input" formControlName="roleId">
+                                    <option value="">
+                                        Select Role
+                                    </option>
+                                    <option *ngFor="let role of roles" [value]="role.roleId">
+                                        {{ role.roleName }}
+                                    </option>
+
+                                </select>
+                                <div formGroupName="personalDetails">
+                                    <input type="text" class="form-control custom-input" placeholder="Aadhar Number"
+                                        formControlName="aadharNumber">
+                                    <input type="text" class="form-control custom-input" placeholder="Address"
+                                        formControlName="address">
+                                    <input type="text" class="form-control custom-input" placeholder="PAN Card"
+                                        formControlName="panCard">
+                                </div>
+                                <button type="submit" class="btn register-btn w-100">
+                                    REGISTER
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Section -->
+
+                    <div class="col-lg-6">
+
+                        <div class="right-panel">
+
+                            <h1>Hello, Friend!</h1>
+
+                            <h3>
+                                Register your account and start
+                                your journey with us
+                            </h3>
+
+                            <button class="btn btn-outline-light login-btn" (click)="goToLogin()">
+                                LOGIN
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
-    <br>
-    <!-- Email -->
-    <div>
-        <label>Email:</label>
-        <input type="email" name="email" [(ngModel)]="user.email" required email />
-        <div *ngIf="regForm.submitted && !user.email" style="color:red;">
-            Email is required
-        </div>
-        <div *ngIf="regForm.controls['email']?.invalid && regForm.controls['email']?.touched" style="color:red;">
-            Invalid email format
-        </div>
-    </div>
-    <br>
-    <!-- Password -->
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" />
-        <div *ngIf="regForm.submitted && !user.password" style="color:red;">
-            Password is required  ubvgfcf
-        </div>
-        <div *ngIf="regForm.controls['password']?.errors?.['minlength']" style="color:red;">
-            Minimum 6 characters required
-        </div>
-    </div>
-    <br>
-    <button type="submit">Register</button>
-</form>
+
+</div>

@@ -9,9 +9,10 @@ import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
 import { DataBinding } from './data-binding/data-binding';
 import { Dashboard } from './dashboard/dashboard';
+import { Products } from './products/products';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'parent', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'about', component: About },
   { path: 'registartion', component: Registartion },
@@ -19,7 +20,17 @@ export const routes: Routes = [
   { path: 'employee', component: Employee },
   { path: 'printform', component: PrintJob },
   { path: 'login', component: Login },
-   { path: 'dashboard', component: Dashboard },
+  { path: 'dashboard', component: Dashboard },
+  {
+    path: '',
+    component: Dashboard,
+    children: [
+      {
+        path: 'products',
+        component: Products
+      }
+    ]
+  }
 
 ];
 

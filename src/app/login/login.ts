@@ -33,6 +33,8 @@ export class Login implements OnInit {
 
   login() {
 
+    console.log(this.loginForm.value,"00000000");
+
      this.router.navigate(['/dashboard']);
     // if (this.loginForm.invalid) {
     //   return;

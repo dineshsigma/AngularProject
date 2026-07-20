@@ -11,27 +11,28 @@ export class LeftSidebar {
    isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
-    {
-      routeLink: 'dashboard',
-      icon: 'fal fa-home',
-      label: 'Dashboard',
-    },
-    {
-      routeLink: 'products',
-      icon: 'fal fa-box-open',
-      label: 'Products',
-    },
-    {
-      routeLink: 'pages',
-      icon: 'fal fa-file',
-      label: 'Pages',
-    },
-    {
-      routeLink: 'settings',
-      icon: 'fal fa-cog',
-      label: 'Settings',
-    },
-  ];
+  {
+    routeLink: 'dashboard',
+    icon: 'fas fa-home',
+    label: 'Dashboard',
+  },
+  {
+    routeLink: '/products',
+    icon: 'fas fa-box-open',
+    label: 'Products'
+  },
+  {
+    routeLink: '/pages',
+    icon: 'fas fa-file-alt',
+    label: 'Pages',
+  },
+  {
+    routeLink: '/settings',
+    icon: 'fas fa-cog',
+    label: 'Settings',
+  },
+];
+ 
 
   toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed());

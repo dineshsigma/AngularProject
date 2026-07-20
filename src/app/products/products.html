@@ -1,0 +1,81 @@
+<div class="page-container">
+
+    <div class="page-header">
+        <h2>Product Management</h2>
+        <button class="add-btn">
+            <i class="fas fa-plus"></i>
+            Add Product
+        </button>
+    </div>
+    <div class="table-card">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of paginatedProducts">
+                    <td>{{ product.id }}</td>
+                    <td>
+                        <img
+                            [src]="product.image"
+                            alt="Product"
+                            class="product-image">
+                    </td>
+
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>₹{{ product.price }}</td>
+
+                    <td>
+                        <span class="badge active">
+                            {{ product.status }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="edit-btn">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="pagination-container">
+    
+    <button
+        class="pagination-btn"
+        (click)="previousPage()"
+        [disabled]="currentPage === 1">
+        Previous
+    </button>
+
+    <span class="page-info">
+        Page {{ currentPage }} of {{ totalPages }}
+    </span>
+
+    <button
+        class="pagination-btn"
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages">
+        Next
+    </button>
+
+</div>
+    </div>
+
+</div>

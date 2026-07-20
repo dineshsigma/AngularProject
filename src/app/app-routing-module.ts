@@ -12,6 +12,7 @@ import { authGuard } from './guards/auth-guard';
 import { DataBinding } from './data-binding/data-binding';
 import { NgIf } from './ng-if/ng-if'
 import { Dashboard } from './dashboard/dashboard';
+import { Products } from './products/products';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,9 +22,22 @@ const routes: Routes = [
   { path: 'about', component: About },
   { path: 'registartion', component: Registartion },
   { path: 'login', component: Login },
-  { path: 'data-binding', component: DataBinding },
-  { path: 'ng-if', component: NgIf },
   { path: 'dashboard', component: Dashboard },
+
+  {
+    path: '',
+    component: Dashboard,
+    children: [
+      {
+        path: 'dashboard',
+        component: Home
+      },
+      {
+        path: 'products',
+        component: Products
+      }
+    ]
+  },
 
   // ✅ Protected
   { path: 'parent', component: Parent, canActivate: [authGuard] },
