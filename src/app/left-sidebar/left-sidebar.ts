@@ -12,7 +12,7 @@ export class LeftSidebar {
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
-      routeLink: 'dashboard',
+      routeLink: '/dashbaord-slider',
       icon: 'fas fa-home',
       label: 'Dashboard',
     },

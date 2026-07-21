@@ -15,6 +15,7 @@ import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';
 import { Users } from './pages/users/users';
+import { DashboardSliders } from './pages/dashboard-sliders/dashboard-sliders';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,6 +50,10 @@ const routes: Routes = [
       {
         path:'users',
         component:Users
+      },
+       {
+        path:'dashbaord-slider',
+        component:DashboardSliders
       }
     ]
   },
