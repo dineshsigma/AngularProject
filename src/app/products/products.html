@@ -2,7 +2,7 @@
 
     <div class="page-header">
         <h2>Product Management</h2>
-        <button class="add-btn" (click) = "addProduct()">
+        <button class="add-btn" (click)="addProduct()">
             <i class="fas fa-plus"></i>
             Add Product
         </button>
@@ -24,16 +24,22 @@
                 <tr *ngFor="let product of paginatedProducts">
                     <td>{{ product.id }}</td>
                     <td>
-                        <img
-                            [src]="product.image"
-                            alt="Product"
-                            class="product-image">
+                        <img [src]="product.image" alt="Product" class="product-image">
                     </td>
+                    <td>
+                        <span class="product-name" [attr.title]="product.name" data-bs-toggle="tooltip"
+                            data-bs-placement="top">
 
-                    <td>{{ product.name }}</td>
+                            {{
+                            product.name.length > 10
+                            ? (product.name | slice:0:10) + '...'
+                            : product.name
+                            }}
+
+                        </span>
+                    </td>
                     <td>{{ product.category }}</td>
                     <td>₹{{ product.price }}</td>
-
                     <td>
                         <span class="badge active">
                             {{ product.status }}
@@ -41,7 +47,7 @@
                     </td>
 
                     <td>
-                        <button class="edit-btn" (click) = "editProduct(product)">
+                        <button class="edit-btn" (click)="editProduct(product)">
                             <i class="fas fa-edit"></i>
                         </button>
 
@@ -56,35 +62,27 @@
         </table>
 
         <div class="pagination-container">
-    
-    <button
-        class="pagination-btn"
-        (click)="previousPage()"
-        [disabled]="currentPage === 1">
-        Previous
-    </button>
 
-    <span class="page-info">
-        Page {{ currentPage }} of {{ totalPages }}
-    </span>
+            <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
+                Previous
+            </button>
 
-    <button
-        class="pagination-btn"
-        (click)="nextPage()"
-        [disabled]="currentPage === totalPages">
-        Next
-    </button>
+            <span class="page-info">
+                Page {{ currentPage }} of {{ totalPages }}
+            </span>
 
-</div>
+            <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+                Next
+            </button>
+
+        </div>
     </div>
 
 </div>
 
 <!-- Delete Modal -->
 
-<div
-    class="modal-overlay"
-    *ngIf="showDeleteModal">
+<div class="modal-overlay" *ngIf="showDeleteModal">
 
     <div class="modal-container">
 
@@ -101,15 +99,11 @@
 
         <div class="button-group">
 
-            <button
-                class="cancel-btn"
-                (click)="closeDeleteModal()">
+            <button class="cancel-btn" (click)="closeDeleteModal()">
                 Cancel
             </button>
 
-            <button
-                class="confirm-delete-btn"
-                (click)="deleteProduct()">
+            <button class="confirm-delete-btn" (click)="deleteProduct()">
                 Delete
             </button>
 

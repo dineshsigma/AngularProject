@@ -70,13 +70,10 @@ export class AddProduct {
 
  
   saveProduct(): void {
-
-    if (this.productForm.invalid) {
-
-      this.productForm.markAllAsTouched();
-
-      return;
-    }
+    // if (this.productForm.invalid) {
+    //   this.productForm.markAllAsTouched();
+    //   return;
+    // }
 
     const payload = {
       id: this.isEditMode
@@ -87,17 +84,10 @@ export class AddProduct {
 
       image: this.imagePreview
     };
-
     if (this.isEditMode) {
-
-
-      alert('Product Updated Successfully');
-
+      // alert('Product Updated Successfully');
     } else {
-
-     
-
-      alert('Product Added Successfully');
+      // alert('Product Added Successfully');
 
     }
 

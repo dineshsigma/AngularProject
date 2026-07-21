@@ -1,0 +1,154 @@
+.p-toast {
+  margin-top: 20px;
+}
+
+.p-toast .p-toast-message {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  min-width: 350px;
+}
+
+.p-toast .p-toast-message-success {
+  background: #ecfdf3;
+  border-left: 5px solid #22c55e;
+}
+
+.p-toast .p-toast-message-error {
+  background: #fef2f2;
+  border-left: 5px solid #ef4444;
+}
+
+.p-toast .p-toast-message-warn {
+  background: #fffbeb;
+  border-left: 5px solid #f59e0b;
+}
+
+.p-toast .p-toast-message-info {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+}
+
+.p-toast-summary {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.p-toast-detail {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* =========================
+   PrimeNG Toast Styling
+========================= */
+
+.p-toast {
+  top: 20px !important;
+  right: 20px !important;
+}
+
+/* Toast Container */
+.p-toast .p-toast-message {
+  min-width: 380px;
+  border-radius: 14px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease-in-out;
+}
+
+/* Success Toast */
+.p-toast .p-toast-message-success {
+  background: #f0fdf4;
+  border-left: 5px solid #22c55e;
+}
+
+/* Error Toast */
+.p-toast .p-toast-message-error {
+  background: #fef2f2;
+  border-left: 5px solid #ef4444;
+}
+
+/* Warning Toast */
+.p-toast .p-toast-message-warn {
+  background: #fffbeb;
+  border-left: 5px solid #f59e0b;
+}
+
+/* Info Toast */
+.p-toast .p-toast-message-info {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+}
+
+/* Toast Content */
+.p-toast-message-content {
+  padding: 16px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Toast Icon */
+.p-toast-message-icon {
+  font-size: 22px !important;
+}
+
+/* Success Icon */
+.p-toast-message-success .p-toast-message-icon {
+  color: #22c55e;
+}
+
+/* Error Icon */
+.p-toast-message-error .p-toast-message-icon {
+  color: #ef4444;
+}
+
+/* Warning Icon */
+.p-toast-message-warn .p-toast-message-icon {
+  color: #f59e0b;
+}
+
+/* Info Icon */
+.p-toast-message-info .p-toast-message-icon {
+  color: #3b82f6;
+}
+
+/* Title */
+.p-toast-summary {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #111827;
+}
+
+/* Description */
+.p-toast-detail {
+  font-size: 13px !important;
+  color: #6b7280;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Close Button */
+.p-toast-icon-close {
+  color: #6b7280 !important;
+  transition: 0.3s;
+}
+
+.p-toast-icon-close:hover {
+  color: #111827 !important;
+}
+
+/* Animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

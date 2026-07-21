@@ -3,11 +3,12 @@ import { RouterOutlet,RouterModule  } from '@angular/router';
 import { DataBinding } from './data-binding/data-binding';
 import { NgIf } from './ng-if/ng-if'
 import { NgFor } from './ng-for/ng-for';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule],
+  imports: [RouterOutlet,RouterModule,ToastModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

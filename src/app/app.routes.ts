@@ -11,6 +11,7 @@ import { DataBinding } from './data-binding/data-binding';
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';
+import { Users } from './pages/users/users';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,6 +38,10 @@ export const routes: Routes = [
        {
         path:'edit-product/:id',
         component:AddProduct
+      },
+      {
+        path:'users',
+        component:Users
       }
     ]
   }

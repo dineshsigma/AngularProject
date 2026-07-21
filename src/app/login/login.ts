@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth } from '../services/auth';
 import { ToastrService } from 'ngx-toastr';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class Login implements OnInit {
     private fb: FormBuilder,
     private authService: Auth,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -33,9 +35,20 @@ export class Login implements OnInit {
 
   login() {
 
-    console.log(this.loginForm.value,"00000000");
+    console.log(this.loginForm.value, "00000000");
 
-     this.router.navigate(['/dashboard']);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Login Successful',
+        life: 3000
+    });
+
+
+    setTimeout(() => {
+      this.router.navigate(['/dashboard']);
+    }, 1500);
+
     // if (this.loginForm.invalid) {
     //   return;
     // }

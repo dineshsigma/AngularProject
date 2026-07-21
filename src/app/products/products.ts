@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
 import { Router } from '@angular/router';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-products',
-  imports: [CommonModule],
+  imports: [CommonModule,TooltipModule],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })

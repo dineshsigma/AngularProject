@@ -14,6 +14,7 @@ import { NgIf } from './ng-if/ng-if'
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';
+import { Users } from './pages/users/users';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path:'edit-product/:id',
         component:AddProduct
+      },
+      {
+        path:'users',
+        component:Users
       }
     ]
   },

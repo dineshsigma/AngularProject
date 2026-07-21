@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
 
 import { routes } from './app.routes';
 
@@ -11,8 +12,9 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(),
-    
- provideAnimations(),
+
+    provideAnimations(),
+    MessageService,
 
     provideToastr({
       positionClass: 'toast-top-left',
