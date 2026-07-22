@@ -27,9 +27,9 @@ export const routes: Routes = [
   { path: 'printform', component: PrintJob },
   { path: 'login', component: Login },
   { path: 'dashboard', component: Dashboard },
-   { path: 'form', component: TemplateForm },
-   {path:'reactive-form',component:ReactiveForm},
-    {path:'life-cycle',component:LifeCycle},
+  { path: 'form', component: TemplateForm },
+  { path: 'reactive-form', component: ReactiveForm },
+  { path: 'life-cycle', component: LifeCycle },
   {
     path: '',
     component: Dashboard,
@@ -42,17 +42,17 @@ export const routes: Routes = [
         path: 'add-products',
         component: AddProduct
       },
-       {
-        path:'edit-product/:id',
-        component:AddProduct
+      {
+        path: 'edit-product/:id',
+        component: AddProduct
       },
       {
-        path:'users',
-        component:Users
+        path: 'users',
+        component: Users
       },
       {
-        path:'dashbaord-slider',
-        component:DashboardSliders
+        path: 'dashbaord-slider',
+        component: DashboardSliders
       }
     ]
   }

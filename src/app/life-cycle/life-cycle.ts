@@ -10,11 +10,11 @@ import { Component, OnInit ,AfterViewInit, AfterViewChecked, AfterContentInit, A
 export class LifeCycle implements OnInit,AfterViewInit,AfterViewChecked,AfterContentInit,AfterContentChecked,OnDestroy {
 
   constructor(){
-    console.log("constructor")
+    console.log("constructor");
   }
 
   ngOnInit(): void {
-    console.log("ngOnInit()")
+    console.log("ngOnInit()");
   }
 
   ngAfterViewInit():void{
