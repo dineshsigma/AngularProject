@@ -1,20 +1,51 @@
 <nav class="navbar">
+
     <div class="navbar-left">
+
         <i class="bi bi-person-circle profile-icon"></i>
+
         <div class="user-info">
+
             <span class="user-name">
                 Dinesh Kumar
             </span>
+
             <span class="user-email">
                 dinesh@gmail.com
             </span>
+
         </div>
-        <!-- <span class="app-name">Admin Portal</span> -->
+
     </div>
 
     <div class="navbar-right">
-        <button class="logout-btn" (click)="logout()">
-            Logout
+
+        <!-- Theme Toggle -->
+
+        <button
+            class="theme-btn"
+            (click)="toggleTheme()">
+
+            <i
+                *ngIf="!isDarkMode"
+                class="bi bi-moon-fill">
+            </i>
+
+            <i
+                *ngIf="isDarkMode"
+                class="bi bi-sun-fill">
+            </i>
+
         </button>
+
+        <button
+            class="logout-btn"
+            (click)="logout()">
+
+            Logout
+
+        </button>
+
     </div>
+
 </nav>

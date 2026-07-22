@@ -45,3 +45,36 @@
     width: 1.2rem !important;
     height: 1.2rem !important;
 }
+
+:root {
+
+    --bg-color: #f8fafc;
+
+    --card-bg: #ffffff;
+
+    --text-color: #111827;
+
+    --border-color: #e5e7eb;
+
+}
+
+body[data-theme='dark'] {
+
+    --bg-color: #0f172a;
+
+    --card-bg: #1e293b;
+
+    --text-color: #f8fafc;
+
+    --border-color: #334155;
+}
+
+
+body {
+
+    background: var(--bg-color);
+
+    color: var(--text-color);
+
+    transition: all .3s ease;
+}
