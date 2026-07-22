@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { Employee } from '../../employee/employee';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [Employee],
   templateUrl: './users.html',
   styleUrl: './users.css',
 })
-export class Users {}
+export class Users {
+
+}

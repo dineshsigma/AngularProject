@@ -1,31 +1,120 @@
-<p>dynamic-table works!</p>
-<table border="1" width="100%">
+<div class="page-container">
 
-  <thead>
-    <tr>
+    <!-- Header -->
 
-      <!-- Dynamic Columns -->
-      <th *ngFor="let column of columns">
-        {{ column.header }}
-      </th>
+    <div class="page-header">
 
-    </tr>
-  </thead>
+        <div>
+            <h2>{{ title }}</h2>
+        </div>
 
-  <tbody>
+        <button
+            *ngIf="showAddButton"
+            class="add-btn"
+            (click)="onAdd()">
 
-    <!-- Dynamic Rows -->
-    <tr *ngFor="let row of data">
+            <i class="fas fa-plus"></i>
 
-      <!-- Dynamic Cell Values -->
-      <td *ngFor="let column of columns">
+            {{ addButtonText }}
 
-        {{ row[column.field] }}
+        </button>
 
-      </td>
+    </div>
 
-    </tr>
+    <!-- Table -->
 
-  </tbody>
+    <div class="table-card">
 
-</table>
+        <table class="custom-table">
+
+            <thead>
+
+            <tr>
+
+                <th *ngFor="let column of columns">
+                    {{ column.header }}
+                </th>
+
+                <th>Actions</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr *ngFor="let row of data">
+
+                <td *ngFor="let column of columns">
+
+                    <ng-container [ngSwitch]="column.type">
+
+                        <!-- Image -->
+
+                        <img
+                            *ngSwitchCase="'image'"
+                            [src]="row[column.field]"
+                            class="table-image">
+
+                        <!-- Currency -->
+
+                        <span *ngSwitchCase="'currency'">
+                            ₹{{ row[column.field] }}
+                        </span>
+
+                        <!-- Badge -->
+
+                        <span
+                            *ngSwitchCase="'badge'"
+                            class="status-badge"
+                            [ngClass]="row[column.field]?.toLowerCase()">
+
+                            {{ row[column.field] }}
+
+                        </span>
+
+                        <!-- Text -->
+
+                        <span *ngSwitchDefault>
+
+                            {{ row[column.field] }}
+
+                        </span>
+
+                    </ng-container>
+
+                </td>
+
+                <td>
+
+                    <div class="action-buttons">
+
+                        <button
+                            class="edit-btn"
+                            (click)="onEdit(row)">
+
+                            <i class="fas fa-edit"></i>
+
+                        </button>
+
+                        <button
+                            class="delete-btn"
+                            (click)="onDelete(row)">
+
+                            <i class="fas fa-trash"></i>
+
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

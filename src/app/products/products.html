@@ -103,7 +103,7 @@
                 Cancel
             </button>
 
-            <button class="confirm-delete-btn" (click)="deleteProduct()">
+            <button class="confirm-delete-btn" (click)="deleteProduct1()">
                 Delete
             </button>
 
@@ -112,3 +112,17 @@
     </div>
 
 </div>
+
+
+
+<!-- <app-dynamic-table
+    title="Product Management"
+    [columns]="productColumns"
+    [data]="products"
+    [showAddButton]="true"
+    addButtonText="Add Product"
+    redirectUrl="/add-products"
+    (edit)="editProduct($event)"
+    (delete)="deleteProduct($event)"
+    >
+</app-dynamic-table> -->

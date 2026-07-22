@@ -14,6 +14,7 @@ import { AddProduct } from './pages/add-product/add-product';
 import { Users } from './pages/users/users';
 import { DashboardSliders } from './pages/dashboard-sliders/dashboard-sliders';
 import { TemplateForm } from './pages/template-form/template-form';
+import { ReactiveForm } from './pages/reactive-form/reactive-form';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'dashboard', component: Dashboard },
    { path: 'form', component: TemplateForm },
+   {path:'reactive-form',component:ReactiveForm},
   {
     path: '',
     component: Dashboard,

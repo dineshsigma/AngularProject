@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
 import { Router } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
+import { DataTable } from '../shared/data-table/data-table';
 
 import { CommonModule } from '@angular/common';
+import { TableColumn } from '../models/table-column.model';
 @Component({
   selector: 'app-products',
-  imports: [CommonModule,TooltipModule],
+  imports: [CommonModule,TooltipModule,DynamicTable],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
@@ -82,6 +84,68 @@ export class Products {
   ];
 
 
+productColumns: TableColumn[] = [
+    {
+      field: 'id',
+      header: 'ID'
+    },
+    {
+      field: 'image',
+      header: 'Image',
+      type: 'image'
+    },
+    {
+      field: 'name',
+      header: 'Product Name'
+    },
+    {
+      field: 'category',
+      header: 'Category'
+    },
+    {
+      field: 'price',
+      header: 'Price',
+      type: 'currency'
+    },
+    {
+      field: 'status',
+      header: 'Status',
+      type: 'badge'
+    }
+  ];
+
+
+  
+editProduct(product: any): void {
+
+    console.log('Edit Product:', product);
+
+    this.router.navigate(
+      ['edit-product/:id'],
+      {
+        state: {
+          product: product
+        }
+      }
+    );
+  }
+
+  deleteProduct(product: any): void {
+
+    console.log('Delete Product:', product);
+
+    const index = this.products.findIndex(
+      p => p.id === product.id
+    );
+
+    if (index > -1) {
+      this.products.splice(index, 1);
+      this.products = [...this.products];
+    }
+  }
+
+
+
   currentPage = 1;
   itemsPerPage = 5;
 
@@ -123,7 +187,7 @@ export class Products {
     this.selectedProduct = null;
   }
 
-  deleteProduct(): void {
+  deleteProduct1(): void {
 
     this.products = this.products.filter(
       p => p.id !== this.selectedProduct.id
@@ -132,15 +196,15 @@ export class Products {
     this.closeDeleteModal();
   }
 
-  editProduct(product: any) {
-    console.log("product", product);
+  // editProduct(product: any) {
+  //   console.log("product", product);
 
-    this.router.navigate(
-      ['/edit-product', product.id]
-    );
+  //   this.router.navigate(
+  //     ['/edit-product', product.id]
+  //   );
 
 
-  }
+  // }
 
   
 updateProduct(updatedProduct: any) {

@@ -1,0 +1,40 @@
+<div class="table-card">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data">
+                <td *ngFor="let col of columns">
+                    <!-- Image Column -->
+                    <ng-container *ngIf="col.type === 'image'">
+                        <img
+                            [src]="row[col.field]"
+                            class="product-image">
+                    </ng-container>
+                    <!-- Text Column -->
+                    <ng-container *ngIf="!col.type">
+                        {{ row[col.field] }}
+                    </ng-container>
+                </td>
+                <td>
+                    <button
+                        class="edit-btn"
+                        (click)="onEdit(row)">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button
+                        class="delete-btn"
+                        (click)="onDelete(row)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

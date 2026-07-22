@@ -1,7 +1,7 @@
 <div class="container">
     <h2>User</h2>
 
-    <form class="row g-3 needs-validation" novalidate>
+    <form #form="ngForm" class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
             <label class="form-label">First name<span class="text-danger">*</span></label>
             <input type="text" [(ngModel)]="userObj.firstName" #fname="ngModel" name="firstName" class="form-control"
@@ -17,46 +17,54 @@
             <label class="form-label">Last name<span class="text-danger">*</span></label>
             <input type="text" [(ngModel)]="userObj.lastName" #lname="ngModel" name="lastName" class="form-control" required>
             <div class="text-danger">
-                <!-- if(lname.errors?.['required']){
+                @if(lname.errors?.['required'] && lname.touched && lname.dirty){
                     <span>Required Field</span>
-                } -->
+                }
             </div>
 
         </div>
         <div class="col-md-4">
-            <label class="form-label">Username</label>
-            <div class="input-group has-validation">
-                <span class="input-group-text" id="inputGroupPrepend">ff</span>
-                <input type="text" class="form-control" [(ngModel)]="userObj.userName" name="userName" required>
-                <div class="invalid-feedback">
-                    Please choose a username.
-                </div>
+            <label class="form-label">Username<span class="text-danger">*</span></label>
+            
+                <input type="text" class="form-control" [(ngModel)]="userObj.userName" name="userName"  #uname="ngModel" required>
+                <div class="text-danger">
+                @if(uname.errors?.['required'] && uname.touched && uname.dirty){
+                    <span>Required Field</span>
+                }       
             </div>
         </div>
         <div class="col-md-6">
-            <label class="form-label">City</label>
-            <input type="text" [(ngModel)]="userObj.city" class="form-control" name="city" required>
-            <div class="invalid-feedback">
-                Please provide a valid city.
+            <label class="form-label">City<span class="text-danger">*</span></label>
+            <input type="text" [(ngModel)]="userObj.city" class="form-control" name="city" #city="ngModel" required>
+            <div class="text-danger">
+                @if(city.errors?.['required'] && city.touched && city.dirty){
+                    <span>Required Field</span>
+                }       
             </div>
+            
         </div>
         <div class="col-md-3">
-            <label class="form-label">State</label>
-            <select class="form-select" [(ngModel)]="userObj.state" name="state" required>
+            <label class="form-label">State<span class="text-danger">*</span></label>
+            <select class="form-select" [(ngModel)]="userObj.state" name="state" required #state="ngModel">
                 <option selected disabled value="">Choose...</option>
                 <option value="SKHT">srikalahasti</option>
                 <option value="TPT">Tirupathi</option>
                 <option value="Nellore">Nellore</option>
             </select>
-            <div class="invalid-feedback">
-                Please select a valid state.
+            <div class="text-danger">
+                @if(state.errors?.['required'] && state.touched && state.dirty){
+                    <span>Required Field</span>
+                }       
             </div>
+            
         </div>
         <div class="col-md-3">
-            <label class="form-label">Zip</label>
-            <input type="text" [(ngModel)]="userObj.ZipCode" class="form-control" name="zipCode" required>
-            <div class="invalid-feedback">
-                Please provide a valid zip.
+            <label class="form-label">Zip<span class="text-danger">*</span></label>
+            <input type="text" [(ngModel)]="userObj.ZipCode" class="form-control" name="zipCode" required #zipCode="ngModel">
+            <div class="text-danger">
+                @if(zipCode.errors?.['required'] && zipCode.touched && zipCode.dirty){
+                    <span>Required Field</span>
+                }       
             </div>
         </div>
         <div class="col-12">
@@ -72,7 +80,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="button" (click)="onSubmit()">Submit form</button>
+            <button class="btn btn-primary" [disabled] = "form.invalid" type="button" (click)="onSubmit()">Submit form</button>
         </div>
     </form>
 
