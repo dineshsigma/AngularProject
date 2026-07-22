@@ -1,4 +1,4 @@
-import { Component, Input ,Output,EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TableColumn } from '../../models/table-column.model';
@@ -11,10 +11,10 @@ import { TableColumn } from '../../models/table-column.model';
 })
 export class DynamicTable {
 
- 
-@Input() title = '';
+  @Input() title = '';
 
   @Input() columns: TableColumn[] = [];
+
   @Input() data: any[] = [];
 
   @Input() showAddButton = false;
@@ -24,22 +24,38 @@ export class DynamicTable {
   @Input() redirectUrl = '';
 
   @Output() edit = new EventEmitter<any>();
+
   @Output() delete = new EventEmitter<any>();
 
-  constructor(private router: Router) {}
+  showDeleteModal = false;
 
-  onAdd(): void {
+  selectedRow: any = null;
+
+  constructor(private router: Router) { }
+
+  addRecord(): void {
     if (this.redirectUrl) {
       this.router.navigate([this.redirectUrl]);
     }
   }
 
-  onEdit(row: any): void {
+  editRow(row: any): void {
     this.edit.emit(row);
   }
 
-  onDelete(row: any): void {
-    this.delete.emit(row);
+  openDeleteModal(row: any): void {
+    this.selectedRow = row;
+    this.showDeleteModal = true;
+  }
+
+  closeDeleteModal(): void {
+    this.showDeleteModal = false;
+    this.selectedRow = null;
+  }
+
+  confirmDelete(): void {
+    this.delete.emit(this.selectedRow);
+    this.closeDeleteModal();
   }
 
 

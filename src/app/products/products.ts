@@ -117,9 +117,7 @@ productColumns: TableColumn[] = [
 
   
 editProduct(product: any): void {
-
     console.log('Edit Product:', product);
-
     this.router.navigate(
       ['edit-product/:id'],
       {
@@ -130,10 +128,8 @@ editProduct(product: any): void {
     );
   }
 
-  deleteProduct(product: any): void {
-
+  deleteProduct2(product: any): void {
     console.log('Delete Product:', product);
-
     const index = this.products.findIndex(
       p => p.id === product.id
     );
@@ -144,11 +140,8 @@ editProduct(product: any): void {
     }
   }
 
-
-
   currentPage = 1;
   itemsPerPage = 5;
-
 
   get paginatedProducts() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -175,8 +168,6 @@ editProduct(product: any): void {
   addProduct() {
     this.router.navigate(['/add-products']);
   }
-
-
   openDeleteModal(product: any): void {
     this.selectedProduct = product;
     this.showDeleteModal = true;
@@ -186,27 +177,6 @@ editProduct(product: any): void {
     this.showDeleteModal = false;
     this.selectedProduct = null;
   }
-
-  deleteProduct1(): void {
-
-    this.products = this.products.filter(
-      p => p.id !== this.selectedProduct.id
-    );
-
-    this.closeDeleteModal();
-  }
-
-  // editProduct(product: any) {
-  //   console.log("product", product);
-
-  //   this.router.navigate(
-  //     ['/edit-product', product.id]
-  //   );
-
-
-  // }
-
-  
 updateProduct(updatedProduct: any) {
 
     const index = this.products.findIndex(

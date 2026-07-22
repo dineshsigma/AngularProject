@@ -165,3 +165,194 @@
     background: #dc2626;
     color: white;
 }
+
+/* ==========================
+   MODAL OVERLAY
+========================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+
+    z-index: 99999;
+    animation: fadeIn 0.25s ease;
+}
+
+/* ==========================
+   MODAL CONTAINER
+========================== */
+
+.modal-container {
+    width: 450px;
+    max-width: 90%;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.18),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+
+    animation: scaleIn 0.3s ease;
+}
+
+/* ==========================
+   DELETE ICON
+========================== */
+
+.modal-icon {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #fef2f2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 4px solid #fee2e2;
+}
+
+.modal-icon i {
+    font-size: 42px;
+    color: #ef4444;
+}
+
+/* ==========================
+   HEADING
+========================== */
+
+.modal-container h3 {
+    margin: 0 0 10px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+/* ==========================
+   MESSAGE
+========================== */
+
+.modal-container p {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.6;
+
+    margin-bottom: 28px;
+}
+
+.modal-container strong {
+    color: #111827;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Cancel */
+
+.cancel-btn {
+    min-width: 130px;
+
+    padding: 12px 20px;
+
+    border: 1px solid #d1d5db;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #f3f4f6;
+}
+
+/* Delete */
+
+.confirm-delete-btn {
+    min-width: 130px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.confirm-delete-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
