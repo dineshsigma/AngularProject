@@ -120,6 +120,7 @@
     [showAddButton]="true"
     addButtonText="Add Product"
     redirectUrl="/add-products"
+    [pageSizeOptions]="[5,10,20,50]"
     (edit)="editProduct($event)"
     (delete)="deleteProduct2($event)"
     >

@@ -113,9 +113,6 @@ productColumns: TableColumn[] = [
       type: 'badge'
     }
   ];
-
-
-  
 editProduct(product: any): void {
     console.log('Edit Product:', product);
     this.router.navigate(

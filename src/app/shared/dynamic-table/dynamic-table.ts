@@ -58,5 +58,72 @@ export class DynamicTable {
     this.closeDeleteModal();
   }
 
+  
+currentPage = 1;
+
+pageSize = 5;
+
+@Input() pageSizeOptions: number[] = [5, 10, 20, 50];
+
+// Paginated Records
+
+get paginatedData(): any[] {
+
+  const startIndex =
+    (this.currentPage - 1) * this.pageSize;
+
+  const endIndex =
+    startIndex + this.pageSize;
+
+  return this.data.slice(
+    startIndex,
+    endIndex
+  );
+}
+
+// Total Pages
+
+get totalPages(): number {
+
+  return Math.ceil(
+    this.data.length / this.pageSize
+  );
+
+}
+
+// Previous
+
+previousPage(): void {
+
+  if (this.currentPage > 1) {
+    this.currentPage--;
+  }
+
+}
+
+// Next
+
+nextPage(): void {
+
+  if (this.currentPage < this.totalPages) {
+    this.currentPage++;
+  }
+
+}
+
+// Change Page Size
+
+changePageSize(event: Event): void {
+
+  const value = Number(
+    (event.target as HTMLSelectElement).value
+  );
+
+  this.pageSize = value;
+
+  this.currentPage = 1;
+}
+
+
 
 }
