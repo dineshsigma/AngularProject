@@ -18,6 +18,7 @@ import { Users } from './pages/users/users';
 import { DashboardSliders } from './pages/dashboard-sliders/dashboard-sliders';
 import { TemplateForm } from './pages/template-form/template-form';
 import { ReactiveForm } from './pages/reactive-form/reactive-form';
+import { LifeCycle } from './life-cycle/life-cycle';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'dashboard', component: Dashboard },
    { path: 'form', component: TemplateForm },
    {path:'reactive-form',component:ReactiveForm},
+    {path:'life-cycle',component:LifeCycle},
   {
     path: '',
     component: Dashboard,
