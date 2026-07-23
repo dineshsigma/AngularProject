@@ -46,7 +46,7 @@ export class Login implements OnInit {
 
 
     setTimeout(() => {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashbaord-slider']);
     }, 1500);
 
     // if (this.loginForm.invalid) {

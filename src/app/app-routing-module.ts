@@ -10,7 +10,7 @@ import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
 import { authGuard } from './guards/auth-guard';
 import { DataBinding } from './data-binding/data-binding';
-import { NgIf } from './ng-if/ng-if'
+import { NgIf } from './ng-if/ng-if';
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';
