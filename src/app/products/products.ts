@@ -27,10 +27,10 @@ export class Products implements OnInit {
   }
 
   productColumns: TableColumn[] = [
-    {
-      field: 'id',
-      header: 'ID'
-    },
+    // {
+    //   field: 'id',
+    //   header: 'ID'
+    // },
     {
       field: 'title',
       header: 'Title'
@@ -55,6 +55,11 @@ export class Products implements OnInit {
     {
       field: 'stock',
       header: 'Stock'
+    },
+    {
+      field: 'availabilityStatus',
+      header: 'Status',
+      type:'badge'
     }
   ];
 
