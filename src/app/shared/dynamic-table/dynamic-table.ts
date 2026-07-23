@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TableColumn } from '../../models/table-column.model';
 import { FormsModule } from '@angular/forms';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-dynamic-table',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,TooltipModule],
    standalone: true,
   templateUrl: './dynamic-table.html',
   styleUrl: './dynamic-table.css',

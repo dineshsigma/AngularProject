@@ -649,3 +649,11 @@
   transform: translateY(-50%);
   color: #64748b;
 }
+.table-text {
+  cursor: pointer;
+  display: inline-block;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

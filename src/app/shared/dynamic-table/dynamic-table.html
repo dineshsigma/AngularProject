@@ -4,35 +4,29 @@
       <h2>{{ title }}</h2>
     </div>
 
-     <div *ngIf="showSearch" class="search-container">
+    <div *ngIf="showSearch" class="search-container">
       <div class="search-box">
-         <i class="fas fa-search search-icon"></i>
- <input
-      type="text"
-      placeholder="Search..."
-      [(ngModel)]="searchText"
-      (input)="applySearch()">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search..." [(ngModel)]="searchText" (input)="applySearch()">
       </div>
     </div>
     <button *ngIf="showAddButton" class="add-btn" (click)="addRecord()">
       <i class="fas fa-plus"></i>
       {{ addButtonText }}
     </button>
-   
+
   </div>
   <div class="table-card">
     <!-- Loader Overlay -->
-<div
-  *ngIf="loading"
-  class="loader-overlay">
-  <div class="modern-loader">
-    <div class="spinner-ring"></div>
-    <div class="loader-text">
-      Loading Data...
-    </div>
-  </div>
+    <div *ngIf="loading" class="loader-overlay">
+      <div class="modern-loader">
+        <div class="spinner-ring"></div>
+        <div class="loader-text">
+          Loading Data...
+        </div>
+      </div>
 
-</div>
+    </div>
     <table class="custom-table">
       <thead>
         <tr>
@@ -53,9 +47,20 @@
               <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="row[column.field]?.toLowerCase()">
                 {{ row[column.field] }}
               </span>
-              <span *ngSwitchDefault>
-                {{ row[column.field] }}
+              <span *ngSwitchDefault class="table-text" [pTooltip]="
+    row[column.field] &&
+    row[column.field].toString().length > 15
+      ? row[column.field]
+      : ''
+  " tooltipPosition="top" tooltipStyleClass="custom-tooltip">
+                {{
+                row[column.field] &&
+                row[column.field].toString().length > 15
+                ? (row[column.field].toString() | slice:0:15) + '...'
+                : row[column.field]
+                }}
               </span>
+
             </ng-container>
           </td>
           <td>
@@ -74,20 +79,15 @@
     <div class="pagination-container">
       <div class="page-size-container">
         <label>Rows Per Page</label>
-        <select
-  class="page-size-select"
-  [value]="pageSize"
-  (change)="changePageSize($event)">
+        <select class="page-size-select" [value]="pageSize" (change)="changePageSize($event)">
 
-  <option
-    *ngFor="let option of pageSizeOptions"
-    [value]="option">
+          <option *ngFor="let option of pageSizeOptions" [value]="option">
 
-    {{ option }}
+            {{ option }}
 
-  </option>
+          </option>
 
-</select>
+        </select>
       </div>
       <div class="pagination-controls">
         <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">

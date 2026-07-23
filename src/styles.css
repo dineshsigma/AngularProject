@@ -78,3 +78,16 @@ body {
 
     transition: all .3s ease;
 }
+
+.custom-tooltip {
+  max-width: 350px !important;
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+}
