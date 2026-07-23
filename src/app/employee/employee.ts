@@ -11,15 +11,11 @@ import { TableColumn } from '../models/table-column.model';
   styleUrl: './employee.css'
 })
 export class Employee implements OnInit {
-
   employeeData: any[] = [];
-
   currentPage = 1;
-
   pageSize = 10;
-
   totalRecords = 0;
-
+  loading = false;
   constructor(
     private productService: Products, private cdr: ChangeDetectorRef
   ) {}
@@ -45,6 +41,7 @@ export class Employee implements OnInit {
   }
 
   loadEmployees(): void {
+     this.loading = true;
     this.productService
       .getProducts(
         this.currentPage,
@@ -54,10 +51,12 @@ export class Employee implements OnInit {
         next: (response) => {
           this.employeeData = [...response.products]
           this.totalRecords = Number(response.total);
+          this.loading = false;
           this.cdr.detectChanges();
         },
 
         error: (error) => {
+          this.loading = false;
           console.error(
             'API Error',
             error

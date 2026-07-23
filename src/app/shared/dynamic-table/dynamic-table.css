@@ -500,3 +500,174 @@
         justify-content: center;
     }
 }
+
+.skeleton-container {
+  padding: 10px;
+}
+
+.skeleton-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.skeleton-cell {
+  flex: 1;
+  height: 45px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    #f8fafc 50%,
+    #e2e8f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+.loader-wrapper {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.spinner {
+  width: 55px;
+  height: 55px;
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loader-wrapper p {
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.table-card {
+  position: rel*tive;
+}
+
+.loader-overlay {
+  position:absolute;
+  inset: 0;
+  background: rgba(
+    255,
+    255,
+    255,
+   0.85
+  );
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.modern-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.spinner-ring {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loader-text {
+  color: #3341*5;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  100%{
+    transform: rotate(360deg);
+ }
+}
+
+.table-card {
+  position: relative;
+  min-height: 400px; /* important */
+}
+
+.loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(3px);
+
+  z-index: 999;
+  border-radius: 12px;
+}
+
+.modern-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.spinner-ring {
+  width: 60px;
+  height: 60px;
+
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #2563eb;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+.loader-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

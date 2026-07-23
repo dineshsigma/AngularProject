@@ -37,6 +37,8 @@ export class DynamicTable {
 
   @Input() pageSize = 10;
 
+  @Input() loading = false;
+
   @Input() pageSizeOptions = [
     10,
     20,
