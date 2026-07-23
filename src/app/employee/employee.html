@@ -3,10 +3,14 @@
   [columns]="employeeColumns"
   [data]="employeeData"
   [showAddButton]="true"
+  [showSearch]="true"
   [loading]="loading"
   [currentPage]="currentPage"
   [pageSize]="pageSize"
   [totalRecords]="totalRecords"
   (pageChange)="onPageChange($event)"
-  (pageSizeChange)="onPageSizeChange($event)">
+  (pageSizeChange)="onPageSizeChange($event)"
+  (search)="onSearch($event)"
+  [redirectUrl] = "rediectUrl"
+  >
 </app-dynamic-table>

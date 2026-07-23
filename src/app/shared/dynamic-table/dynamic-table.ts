@@ -9,10 +9,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TableColumn } from '../../models/table-column.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-table',
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
    standalone: true,
   templateUrl: './dynamic-table.html',
   styleUrl: './dynamic-table.css',
@@ -39,6 +40,10 @@ export class DynamicTable {
 
   @Input() loading = false;
 
+  @Input() showSearch = false;
+
+  @Input() searchFields: string[] = [];
+
   @Input() pageSizeOptions = [
     10,
     20,
@@ -55,9 +60,13 @@ export class DynamicTable {
 
   @Output() pageSizeChange = new EventEmitter<number>();
 
+  @Output() search = new EventEmitter<string>();
+
   showDeleteModal = false;
 
   selectedRow: any = null;
+
+  searchText = '';
 
 
    ngOnChanges(
@@ -158,6 +167,12 @@ export class DynamicTable {
   );
 }
 
+
+applySearch():void{
+  console.log(this.searchText,"searchText");
+  let searchValue  =  this.searchText;
+  this.search.emit(searchValue)
+}
 
 
 

@@ -16,6 +16,8 @@ export class Employee implements OnInit {
   pageSize = 10;
   totalRecords = 0;
   loading = false;
+  searchText = '';
+  rediectUrl="/add-products"
   constructor(
     private productService: Products, private cdr: ChangeDetectorRef
   ) {}
@@ -45,7 +47,8 @@ export class Employee implements OnInit {
     this.productService
       .getProducts(
         this.currentPage,
-        this.pageSize
+        this.pageSize,
+        this.searchText
       )
       .subscribe({
         next: (response) => {
@@ -73,5 +76,12 @@ export class Employee implements OnInit {
     this.pageSize = pageSize;
     this.currentPage = 1;
     this.loadEmployees();
+  }
+
+  onSearch(searchText:string):void{
+    this.searchText = searchText;
+     this.currentPage = 1;
+     this.loadEmployees();
+
   }
 }

@@ -11,7 +11,7 @@ export class Products {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(page: number, limit: number): Observable<any> {
+  getProducts(page: number, limit: number,searchText:string): Observable<any> {
 
     const skip = (page - 1) * limit;
 
