@@ -1,6 +1,10 @@
-
 <app-dynamic-table
   title="User Management"
   [columns]="employeeColumns"
-  [data]="employeeData">
+  [data]="employeeData"
+  [currentPage]="currentPage"
+  [pageSize]="pageSize"
+  [totalRecords]="totalRecords"
+  (pageChange)="onPageChange($event)"
+  (pageSizeChange)="onPageSizeChange($event)">
 </app-dynamic-table>

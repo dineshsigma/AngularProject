@@ -1,186 +1,106 @@
 <div class="page-container">
-
-  <!-- Header -->
-
   <div class="page-header">
-
     <div>
       <h2>{{ title }}</h2>
     </div>
-
     <button *ngIf="showAddButton" class="add-btn" (click)="addRecord()">
-
       <i class="fas fa-plus"></i>
-
       {{ addButtonText }}
-
     </button>
-
   </div>
-
-  <!-- Table -->
-
   <div class="table-card">
-
     <table class="custom-table">
-
       <thead>
-
         <tr>
-
           <th *ngFor="let column of columns">
             {{ column.header }}
           </th>
-
           <th>Actions</th>
-
         </tr>
-
       </thead>
-
       <tbody>
-
-        <tr *ngFor="let row of paginatedData">
-
+        <tr *ngFor="let row of data">
           <td *ngFor="let column of columns">
-
             <ng-container [ngSwitch]="column.type">
-
-              <!-- Image -->
-
               <img *ngSwitchCase="'image'" [src]="row[column.field]" class="table-image">
-
-              <!-- Currency -->
-
               <span *ngSwitchCase="'currency'">
                 ₹{{ row[column.field] }}
               </span>
-
-              <!-- Badge -->
-
               <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="row[column.field]?.toLowerCase()">
-
                 {{ row[column.field] }}
-
               </span>
-
-              <!-- Text -->
-
               <span *ngSwitchDefault>
-
                 {{ row[column.field] }}
-
               </span>
-
             </ng-container>
-
           </td>
-
           <td>
-
             <div class="action-buttons">
-
               <button class="edit-btn" (click)="editRow(row)">
-
                 <i class="fas fa-edit"></i>
-
               </button>
-
               <button class="delete-btn" (click)="openDeleteModal(row)">
-
                 <i class="fas fa-trash"></i>
-
               </button>
-
             </div>
-
           </td>
-
         </tr>
-
       </tbody>
-
     </table>
-
     <div class="pagination-container">
-
       <div class="page-size-container">
-
         <label>Rows Per Page</label>
+        <select
+  class="page-size-select"
+  [value]="pageSize"
+  (change)="changePageSize($event)">
 
-        <select class="page-size-select" (change)="changePageSize($event)">
+  <option
+    *ngFor="let option of pageSizeOptions"
+    [value]="option">
 
-          <option *ngFor="let option of pageSizeOptions" [value]="option">
+    {{ option }}
 
-            {{ option }}
+  </option>
 
-          </option>
-
-        </select>
-
+</select>
       </div>
-
       <div class="pagination-controls">
-
         <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
-
           <i class="fas fa-chevron-left"></i>
-
           Previous
-
         </button>
-
         <span class="page-info">
-
           Page {{ currentPage }}
           of
           {{ totalPages }}
-
+          ({{ totalRecords }} Records)
         </span>
-
         <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
-
           Next
-
           <i class="fas fa-chevron-right"></i>
-
         </button>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
-
 <div class="modal-overlay" *ngIf="showDeleteModal">
-
   <div class="modal-container">
-
     <div class="modal-icon">
       <i class="fas fa-trash-alt"></i>
     </div>
-
     <h3>Delete Record</h3>
-
     <p>
       Are you sure you want to delete
       <strong>{{ selectedRow?.name }}</strong> ?
     </p>
-
     <div class="button-group">
-
       <button class="cancel-btn" (click)="closeDeleteModal()">
         Cancel
       </button>
-
       <button class="confirm-delete-btn" (click)="confirmDelete()">
         Delete
       </button>
-
     </div>
-
   </div>
-
 </div>

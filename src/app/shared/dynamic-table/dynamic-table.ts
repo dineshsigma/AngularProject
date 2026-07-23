@@ -1,4 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TableColumn } from '../../models/table-column.model';
@@ -6,6 +13,7 @@ import { TableColumn } from '../../models/table-column.model';
 @Component({
   selector: 'app-dynamic-table',
   imports: [CommonModule],
+   standalone: true,
   templateUrl: './dynamic-table.html',
   styleUrl: './dynamic-table.css',
 })
@@ -23,15 +31,56 @@ export class DynamicTable {
 
   @Input() redirectUrl = '';
 
+  @Input() totalRecords = 0;
+
+  @Input() currentPage = 1;
+
+  @Input() pageSize = 10;
+
+  @Input() pageSizeOptions = [
+    10,
+    20,
+    30,
+    40,
+    50
+  ];
+
   @Output() edit = new EventEmitter<any>();
 
   @Output() delete = new EventEmitter<any>();
+
+  @Output() pageChange = new EventEmitter<number>();
+
+  @Output() pageSizeChange = new EventEmitter<number>();
 
   showDeleteModal = false;
 
   selectedRow: any = null;
 
+
+   ngOnChanges(
+    changes: SimpleChanges
+  ): void {
+
+    console.log(
+      'Dynamic Table Changes',
+      changes
+    );
+
+    console.log(
+      'Total Records',
+      this.totalRecords
+    );
+  }
+
   constructor(private router: Router) { }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+
+  //   if (changes['totalRecords']) {
+  //     // this.generatePageSizeOptions();
+  //   }
+  // }
 
   addRecord(): void {
     if (this.redirectUrl) {
@@ -58,71 +107,55 @@ export class DynamicTable {
     this.closeDeleteModal();
   }
 
-  
-currentPage = 1;
+  get totalPages(): number {
 
-pageSize = 5;
-
-@Input() pageSizeOptions: number[] = [5, 10, 20, 50];
-
-// Paginated Records
-
-get paginatedData(): any[] {
-
-  const startIndex =
-    (this.currentPage - 1) * this.pageSize;
-
-  const endIndex =
-    startIndex + this.pageSize;
-
-  return this.data.slice(
-    startIndex,
-    endIndex
-  );
-}
-
-// Total Pages
-
-get totalPages(): number {
-
-  return Math.ceil(
-    this.data.length / this.pageSize
-  );
-
-}
-
-// Previous
-
-previousPage(): void {
-
-  if (this.currentPage > 1) {
-    this.currentPage--;
+    return this.totalRecords > 0
+      ? Math.ceil(
+        this.totalRecords /
+        this.pageSize
+      )
+      : 1;
   }
 
-}
+  previousPage(): void {
 
-// Next
+    if (
+      this.currentPage > 1
+    ) {
 
-nextPage(): void {
-
-  if (this.currentPage < this.totalPages) {
-    this.currentPage++;
+      this.pageChange.emit(
+        this.currentPage - 1
+      );
+    }
   }
 
-}
+  nextPage(): void {
 
-// Change Page Size
+    if (
+      this.currentPage <
+      this.totalPages
+    ) {
 
-changePageSize(event: Event): void {
+      this.pageChange.emit(
+        this.currentPage + 1
+      );
+    }
+  }
 
-  const value = Number(
-    (event.target as HTMLSelectElement).value
+  changePageSize(
+  event: Event
+): void {
+
+  const pageSize = Number(
+    (event.target as HTMLSelectElement)
+      .value
   );
 
-  this.pageSize = value;
-
-  this.currentPage = 1;
+  this.pageSizeChange.emit(
+    pageSize
+  );
 }
+
 
 
 

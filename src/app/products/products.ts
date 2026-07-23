@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { TableColumn } from '../models/table-column.model';
 @Component({
   selector: 'app-products',
-  imports: [CommonModule,TooltipModule,DynamicTable],
+  imports: [CommonModule,TooltipModule],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
