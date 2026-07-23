@@ -125,3 +125,22 @@
     (delete)="deleteProduct2($event)"
     >
 </app-dynamic-table> -->
+
+
+
+<app-dynamic-table
+  title="Product Management"
+  [columns]="productColumns"
+  [data]="productData"
+  [showAddButton]="true"
+  [showSearch]="true"
+  [loading]="loading"
+  [currentPage]="currentPage"
+  [pageSize]="pageSize"
+  [totalRecords]="totalRecords"
+  (pageChange)="onPageChange($event)"
+  (pageSizeChange)="onPageSizeChange($event)"
+  (search)="onSearch($event)"
+  [redirectUrl] = "rediectUrl"
+  >
+</app-dynamic-table>

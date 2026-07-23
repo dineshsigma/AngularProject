@@ -3,13 +3,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class Products {
+export class Productservice {
+   private readonly baseUrl = 'https://dummyjson.com/products';
 
-  private readonly baseUrl = 'https://dummyjson.com/products';
-
-  private readonly baseSearchUrl = 'https://dummyjson.com/products';
+  private readonly baseSearchUrl = 'https://dummyjson.com/products/search';
 
   constructor(private http: HttpClient) {}
 
