@@ -26,6 +26,8 @@ export class Login implements OnInit {
     private messageService: MessageService
   ) { }
 
+  loading = false;
+
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -38,6 +40,7 @@ export class Login implements OnInit {
       this.loginForm.markAllAsTouched();
       return;
     }
+    this.loading = true;
     this.authService.logindummyApi(this.loginForm.value).subscribe({
       next: (res: any) => {
         this.authService.saveUserData(res);
@@ -53,6 +56,7 @@ export class Login implements OnInit {
 
       }, error: (error: any) => {
         console.log("error", error.error.message);
+         this.loading = false;
         this.messageService.add({
           severity: 'error',
           summary: 'Login Failed',
