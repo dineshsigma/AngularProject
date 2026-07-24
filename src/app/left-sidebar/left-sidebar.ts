@@ -32,7 +32,7 @@ export class LeftSidebar {
       label: 'Pages',
     },
     {
-      routeLink: '/settings',
+      routeLink: '/user-profile',
       icon: 'fas fa-cog',
       label: 'Settings',
     },

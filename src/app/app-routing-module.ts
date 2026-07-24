@@ -19,6 +19,7 @@ import { DashboardSliders } from './pages/dashboard-sliders/dashboard-sliders';
 import { TemplateForm } from './pages/template-form/template-form';
 import { ReactiveForm } from './pages/reactive-form/reactive-form';
 import { LifeCycle } from './life-cycle/life-cycle';
+import { Userprofile } from './userprofile/userprofile';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path: 'dashbaord-slider',
         component: DashboardSliders
+      },
+      {
+        path: 'user-profile',
+        component: Userprofile
       }
     ]
   },
