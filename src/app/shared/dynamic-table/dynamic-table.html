@@ -16,7 +16,8 @@
     </button>
 
   </div>
-  <div class="table-card">
+  <div class="table-container">
+     <div class="table-card">
     <!-- Loader Overlay -->
     <div *ngIf="loading" class="loader-overlay">
       <div class="modern-loader">
@@ -27,7 +28,8 @@
       </div>
 
     </div>
-    <table class="custom-table">
+    <div class="table-wrapper">
+       <table class="custom-table">
       <thead>
         <tr>
           <th *ngFor="let column of columns">
@@ -44,9 +46,13 @@
               <span *ngSwitchCase="'currency'">
                 ₹{{ row[column.field] }}
               </span>
-              <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="row[column.field]?.toLowerCase()">
+              <!-- <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="row[column.field]?.toLowerCase()">
+                {{ row[column.field] }}
+              </span> -->
+              <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="getBadgeStyle(row[column.field])">
                 {{ row[column.field] }}
               </span>
+
               <span *ngSwitchDefault class="table-text" [pTooltip]="
     row[column.field] &&
     row[column.field].toString().length > 15
@@ -76,6 +82,8 @@
         </tr>
       </tbody>
     </table>
+    </div>
+   
     <div class="pagination-container">
       <div class="page-size-container">
         <label>Rows Per Page</label>
@@ -107,6 +115,8 @@
       </div>
     </div>
   </div>
+  </div>
+ 
 </div>
 <div class="modal-overlay" *ngIf="showDeleteModal">
   <div class="modal-container">

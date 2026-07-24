@@ -176,5 +176,23 @@ applySearch():void{
 }
 
 
+getBadgeStyle(status: string): string {
+  const statusMap: { [key: string]: string } = {
+    'In Stock': 'success',
+    'Low Stock': 'warning',
+    'Out Of Stock': 'danger',
+    'Active': 'success',
+    'Inactive': 'danger',
+    'Pending': 'warning',
+    'Approved': 'success',
+    'Rejected': 'danger',
+    'Processing': 'info',
+    'Completed': 'success'
+  };
+
+  return statusMap[status] || 'default';
+}
+
+
 
 }
