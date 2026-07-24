@@ -1,7 +1,15 @@
+<div *ngIf="loading" class="login-loader-overlay">
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <h5>Please wait...</h5>
+    <p>Loading ...</p>
+  </div>
+</div>
+
 <div class="page-container">
   <div class="page-header">
     <div>
-      <h2>{{ title }}</h2>
+      <h4>{{ title }}</h4>
     </div>
 
     <div *ngIf="showSearch" class="search-container">
@@ -17,9 +25,9 @@
 
   </div>
   <div class="table-container">
-     <div class="table-card">
-    <!-- Loader Overlay -->
-    <div *ngIf="loading" class="loader-overlay">
+    <div class="table-card">
+      <!-- Loader Overlay -->
+      <!-- <div *ngIf="loading" class="loader-overlay">
       <div class="modern-loader">
         <div class="spinner-ring"></div>
         <div class="loader-text">
@@ -27,96 +35,92 @@
         </div>
       </div>
 
-    </div>
-    <div class="table-wrapper">
-       <table class="custom-table">
-      <thead>
-        <tr>
-          <th *ngFor="let column of columns">
-            {{ column.header }}
-          </th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of data">
-          <td *ngFor="let column of columns">
-            <ng-container [ngSwitch]="column.type">
-              <img *ngSwitchCase="'image'" [src]="row[column.field]" class="table-image">
-              <span *ngSwitchCase="'currency'">
-                ₹{{ row[column.field] }}
-              </span>
-              <!-- <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="row[column.field]?.toLowerCase()">
-                {{ row[column.field] }}
-              </span> -->
-              <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="getBadgeStyle(row[column.field])">
-                {{ row[column.field] }}
-              </span>
-
-              <span *ngSwitchDefault class="table-text" [pTooltip]="
+    </div> -->
+      <div class="table-wrapper">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th *ngFor="let column of columns">
+                {{ column.header }}
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of data">
+              <td *ngFor="let column of columns">
+                <ng-container [ngSwitch]="column.type">
+                  <img *ngSwitchCase="'image'" [src]="row[column.field]" class="table-image">
+                  <span *ngSwitchCase="'currency'">
+                    ₹{{ row[column.field] }}
+                  </span>
+                  <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="getBadgeStyle(row[column.field])">
+                    {{ row[column.field] }}
+                  </span>
+                  <span *ngSwitchDefault class="table-text" [pTooltip]="
     row[column.field] &&
-    row[column.field].toString().length > 15
+    row[column.field].toString().length > 10
       ? row[column.field]
       : ''
   " tooltipPosition="top" tooltipStyleClass="custom-tooltip">
-                {{
-                row[column.field] &&
-                row[column.field].toString().length > 15
-                ? (row[column.field].toString() | slice:0:15) + '...'
-                : row[column.field]
-                }}
-              </span>
+                    {{
+                    row[column.field] &&
+                    row[column.field].toString().length > 15
+                    ? (row[column.field].toString() | slice:0:15) + '...'
+                    : row[column.field]
+                    }}
+                  </span>
 
-            </ng-container>
-          </td>
-          <td>
-            <div class="action-buttons">
-              <button class="edit-btn" (click)="editRow(row)">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button class="delete-btn" (click)="openDeleteModal(row)">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-   
-    <div class="pagination-container">
-      <div class="page-size-container">
-        <label>Rows Per Page</label>
-        <select class="page-size-select" [value]="pageSize" (change)="changePageSize($event)">
-
-          <option *ngFor="let option of pageSizeOptions" [value]="option">
-
-            {{ option }}
-
-          </option>
-
-        </select>
+                </ng-container>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="edit-btn" (click)="editRow(row)">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="delete-btn" (click)="openDeleteModal(row)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="pagination-controls">
-        <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
-          <i class="fas fa-chevron-left"></i>
-          Previous
-        </button>
-        <span class="page-info">
-          Page {{ currentPage }}
-          of
-          {{ totalPages }}
-          ({{ totalRecords }} Records)
-        </span>
-        <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
-          Next
-          <i class="fas fa-chevron-right"></i>
-        </button>
+
+      <div class="pagination-container">
+        <div class="page-size-container">
+          <label>Rows Per Page</label>
+          <select class="page-size-select" [value]="pageSize" (change)="changePageSize($event)">
+
+            <option *ngFor="let option of pageSizeOptions" [value]="option">
+
+              {{ option }}
+
+            </option>
+
+          </select>
+        </div>
+        <div class="pagination-controls">
+          <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
+            <i class="fas fa-chevron-left"></i>
+            Previous
+          </button>
+          <span class="page-info">
+            Page {{ currentPage }}
+            of
+            {{ totalPages }}
+            ({{ totalRecords }} Records)
+          </span>
+          <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+            Next
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  </div>
- 
+
 </div>
 <div class="modal-overlay" *ngIf="showDeleteModal">
   <div class="modal-container">
