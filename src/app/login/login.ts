@@ -28,51 +28,39 @@ export class Login implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
 
   login() {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    this.authService.logindummyApi(this.loginForm.value).subscribe({
+      next: (res: any) => {
+        this.authService.saveUserData(res);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Login Successful',
+          life: 3000
+        });
+        setTimeout(() => {
+          this.router.navigate(['/dashbaord-slider']);
+        }, 1500);
 
-    console.log(this.loginForm.value, "00000000");
-
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Login Successful',
-        life: 3000
-    });
-
-
-    setTimeout(() => {
-      this.router.navigate(['/dashbaord-slider']);
-    }, 1500);
-
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-    // this.authService.login(this.loginForm.value)
-    //   .subscribe({
-    //     next: (res: any) => {
-    //       localStorage.setItem(
-    //         'token',
-    //         res.accessToken
-    //       );
-
-    //       this.toastr.success(
-    //         'Login Successful',
-    //         'Success'
-    //       );
-
-    //     },
-    //     error: (err: any) => {
-    //       this.toastr.error(
-    //         err.error.message,
-    //         'Invalid Password'
-    //       );
-    //     }
-    //   });
+      }, error: (error: any) => {
+        console.log("error", error.error.message);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Login Failed',
+          detail: error?.error?.message || 'Invalid username or password',
+          life: 3000
+        });
+      }
+    })
   }
   goToRegister() {
     this.router.navigate(['/registartion']);

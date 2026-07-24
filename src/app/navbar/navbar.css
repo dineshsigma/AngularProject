@@ -183,3 +183,16 @@
 
     background: #dc2626;
 }
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.profile-icon {
+  font-size: 50px;
+  color: #94a3b8;
+}
