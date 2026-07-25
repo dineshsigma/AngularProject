@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class Products {
 
-  private readonly baseUrl = 'https://dummyjson.com/products';
+  private readonly baseUrl = 'https://dummyjson.com/users';
 
   private readonly baseSearchUrl = 'https://dummyjson.com/products';
 
@@ -20,7 +20,7 @@ export class Products {
     const params = new HttpParams()
       .set('limit', limit)
       .set('skip', skip)
-      .set('select', 'title,price');
+      // .set('select', 'title,price');
 
     return this.http.get<any>(this.baseUrl, { params });
   }

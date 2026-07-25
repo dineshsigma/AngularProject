@@ -17,24 +17,31 @@ export class Employee implements OnInit {
   totalRecords = 0;
   loading = false;
   searchText = '';
-  rediectUrl="/add-products"
+  rediectUrl = "/add-products"
   constructor(
     private productService: Products, private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   employeeColumns: TableColumn[] = [
     {
-      header: 'ID',
-      field: 'id'
+      header: 'firstName',
+      field: 'firstName'
     },
     {
-      header: 'Title',
-      field: 'title'
+      header: 'lastName',
+      field: 'lastName',
     },
     {
-      header: 'Price',
-      field: 'price',
-      type: 'currency'
+      header: 'Email',
+      field: 'email',
+    },
+    {
+      header: 'Mobile',
+      field: 'phone',
+    },
+    {
+      header: 'Role',
+      field: 'role',
     }
   ];
 
@@ -43,7 +50,7 @@ export class Employee implements OnInit {
   }
 
   loadEmployees(): void {
-     this.loading = true;
+    this.loading = true;
     this.productService
       .getProducts(
         this.currentPage,
@@ -52,7 +59,7 @@ export class Employee implements OnInit {
       )
       .subscribe({
         next: (response) => {
-          this.employeeData = [...response.products]
+          this.employeeData = [...response.users]
           this.totalRecords = Number(response.total);
           this.loading = false;
           this.cdr.detectChanges();
@@ -78,10 +85,10 @@ export class Employee implements OnInit {
     this.loadEmployees();
   }
 
-  onSearch(searchText:string):void{
+  onSearch(searchText: string): void {
     this.searchText = searchText;
-     this.currentPage = 1;
-     this.loadEmployees();
+    this.currentPage = 1;
+    this.loadEmployees();
 
   }
 }

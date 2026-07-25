@@ -105,6 +105,7 @@ export class DynamicTable {
   }
 
   openDeleteModal(row: any): void {
+    console.log("row",row);
     this.selectedRow = row;
     this.showDeleteModal = true;
   }
