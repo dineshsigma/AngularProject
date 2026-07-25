@@ -18,6 +18,7 @@ import { ReactiveForm } from './pages/reactive-form/reactive-form';
 import { LifeCycle } from './life-cycle/life-cycle';
 import { Userprofile } from './userprofile/userprofile';
 import { authGuard } from './guards/auth-guard';
+import { BulkUpload } from './pages/bulk-upload/bulk-upload';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -60,6 +61,10 @@ export const routes: Routes = [
       {
         path: 'user-profile',
         component: Userprofile
+      },
+      {
+        path: 'bulk-upload',
+        component: BulkUpload
       }
     ]
   }

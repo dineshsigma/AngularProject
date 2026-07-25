@@ -26,43 +26,50 @@ export class Products implements OnInit {
 
   }
 
-  productColumns: TableColumn[] = [
-     {
-      field: 'images',
-      header: 'Image',
-      type:'image'
-    },
-    {
-      field: 'title',
-      header: 'Title'
-    },
-    {
-      field: 'category',
-      header: 'Category'
-    },
-    {
-      field: 'description',
-      header: 'Description'
-    },
-    {
-      field: 'price',
-      header: 'Price',
-      type: 'currency'
-    },
-    {
-      field: 'rating',
-      header: 'Rating'
-    },
-    {
-      field: 'stock',
-      header: 'Stock'
-    },
-    {
-      field: 'availabilityStatus',
-      header: 'Status',
-      type:'badge'
-    }
-  ];
+productColumns: TableColumn[] = [
+  {
+    field: 'images',
+    header: 'Image',
+    type: 'image',
+    width: '80px'
+  },
+  {
+    field: 'title',
+    header: 'Title',
+    width: '160px'
+  },
+  {
+    field: 'category',
+    header: 'Category',
+    width: '120px'
+  },
+  {
+    field: 'description',
+    header: 'Description',
+    width: '150px'
+  },
+  {
+    field: 'price',
+    header: 'Price',
+    width: '80px'
+  },
+  {
+    field: 'rating',
+    header: 'Rating',
+    width: '80px'
+  },
+  {
+    field: 'stock',
+    header: 'Stock',
+    width: '80px'
+  },
+  {
+    field: 'availabilityStatus',
+    header: 'Status',
+    type: 'badge',
+    width: '100px'
+  }
+];
 
   ngOnInit(): void {
     this.loadProducts();

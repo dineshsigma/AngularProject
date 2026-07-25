@@ -45,6 +45,17 @@ export class DynamicTable {
   @Output() pageSizeChange = new EventEmitter<number>();
   @Output() search = new EventEmitter<string>();
 
+  ngOnChanges(
+    changes: SimpleChanges
+  ): void {
+
+    console.log(
+      'Dynamic Table Data',
+      this.data
+    );
+
+  }
+
   showDeleteModal = false;
   selectedRow: any = null;
   searchText = '';
@@ -138,5 +149,15 @@ export class DynamicTable {
     };
 
     return statusMap[status] || 'default';
+  }
+
+  getImageSource(image:any):string{
+
+    if(Array.isArray(image)){
+      return image.length > 0 ? image[0] : "";
+    }
+
+    return image;
+
   }
 }

@@ -27,7 +27,7 @@ export class LeftSidebar {
       label: 'Users'
     },
     {
-      routeLink: '/pages',
+      routeLink: '/bulk-upload',
       icon: 'fas fa-file-alt',
       label: 'Pages',
     },

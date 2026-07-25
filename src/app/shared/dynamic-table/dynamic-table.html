@@ -40,7 +40,7 @@
         <table class="custom-table">
           <thead>
             <tr>
-              <th *ngFor="let column of columns">
+              <th *ngFor="let column of columns" [style.width]="column.width">
                 {{ column.header }}
               </th>
               <th>Actions</th>
@@ -50,7 +50,7 @@
             <tr *ngFor="let row of data">
               <td *ngFor="let column of columns">
                 <ng-container [ngSwitch]="column.type">
-                  <img *ngSwitchCase="'image'" [src]="row[column.field]" class="table-image">
+                  <img *ngSwitchCase="'image'" [src]="getImageSource(row[column.field])" class="table-image">
                   <span *ngSwitchCase="'currency'">
                     ₹{{ row[column.field] }}
                   </span>

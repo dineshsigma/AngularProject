@@ -1,0 +1,55 @@
+<div class="container">
+
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      accept=".csv">
+
+    <h3>
+      Total Records:
+      {{ totalRecords }}
+    </h3>
+
+    <div
+      class="table-container"
+      *ngIf="displayedRecords.length > 0">
+
+      <table>
+
+        <thead>
+          <tr>
+
+            <th
+              *ngFor="
+              let column of displayedColumns">
+
+              {{ column }}
+
+            </th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr
+            *ngFor="
+            let row of displayedRecords">
+
+            <td
+              *ngFor="
+              let column of displayedColumns">
+
+              {{ row[column] }}
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+</div>
