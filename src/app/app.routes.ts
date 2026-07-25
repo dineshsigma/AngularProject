@@ -17,6 +17,7 @@ import { TemplateForm } from './pages/template-form/template-form';
 import { ReactiveForm } from './pages/reactive-form/reactive-form';
 import { LifeCycle } from './life-cycle/life-cycle';
 import { Userprofile } from './userprofile/userprofile';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,6 +35,7 @@ export const routes: Routes = [
   {
     path: '',
     component: Dashboard,
+    canActivate: [authGuard],
     children: [
       {
         path: 'products',
