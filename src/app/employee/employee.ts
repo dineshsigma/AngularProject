@@ -25,23 +25,28 @@ export class Employee implements OnInit {
   employeeColumns: TableColumn[] = [
     {
       header: 'firstName',
-      field: 'firstName'
+      field: 'firstName',
+      width: '100px'
     },
     {
       header: 'lastName',
       field: 'lastName',
+      width: '120px'
     },
     {
       header: 'Email',
       field: 'email',
+      width: '180px'
     },
     {
       header: 'Mobile',
       field: 'phone',
+      width: '200px'
     },
     {
       header: 'Role',
       field: 'role',
+      width: '170px'
     }
   ];
 
