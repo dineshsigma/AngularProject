@@ -10,6 +10,8 @@ export class Productservice {
 
   private readonly baseSearchUrl = 'https://dummyjson.com/products/search';
 
+  private readonly baseAddUrl = 'https://dummyjson.com/products/add';
+
   constructor(private http: HttpClient) {}
 
   getProducts(page: number, limit: number,searchText:string): Observable<any> {
@@ -34,5 +36,9 @@ export class Productservice {
 
     return this.http.get<any>(this.baseSearchUrl, { params });
 
+  }
+
+   addProducts(payload:any): Observable<any> {
+    return this.http.post<any>(this.baseAddUrl, payload);
   }
 }

@@ -1,98 +1,223 @@
+<div *ngIf="loading" class="login-loader-overlay">
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <h5>Please wait...</h5>
+    <p>Adding Products....</p>
+  </div>
+</div>
+
 <div class="form-container">
+  <div class="form-card">
 
-    <div class="form-card">
-
-        <h2>
-            {{ isEditMode ? 'Edit Product' : 'Add Product' }}
-        </h2>
-
-        <form [formGroup]="productForm">
-
-            <!-- Row 1 -->
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label>Product Name</label>
-                    <input type="text" class="form-control" formControlName="name">
-                </div>
-
-                <div class="form-group">
-                    <label>Category</label>
-                    <input type="text" class="form-control" formControlName="category">
-                </div>
-
-            </div>
-
-            <!-- Row 2 -->
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label>Price</label>
-                    <input type="number" class="form-control" formControlName="price">
-                </div>
-
-                <div class="form-group">
-                    <label>Status</label>
-
-                    <select class="form-control" formControlName="status">
-
-                        <option value="Active">
-                            Active
-                        </option>
-
-                        <option value="Inactive">
-                            Inactive
-                        </option>
-
-                    </select>
-
-                </div>
-
-            </div>
-
-            <!-- Image Upload -->
-
-            <div class="form-group full-width">
-
-                <label>Product Image</label>
-
-                <div class="upload-box">
-
-                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
-
-                    <p>Click to Upload Product Image</p>
-
-                    <input type="file" accept="image/*" (change)="onFileSelected($event)">
-                </div>
-
-            </div>
-
-            <!-- Image Preview -->
-
-            <div class="image-preview-container" *ngIf="imagePreview">
-
-                <h4>Image Preview</h4>
-
-                <img [src]="imagePreview" alt="Product Preview" class="preview-image">
-
-            </div>
-
-            <!-- Buttons -->
-
-            <div class="button-group">
-
-                <button type="button" class="cancel-btn">
-                    Cancel
-                </button>
-
-                <button type="button" class="save-btn" (click)="saveProduct()">
-                    {{ isEditMode ? 'Update Product' : 'Save Product' }}
-                </button>
-
-            </div>
-
-        </form>
-
+    <div class="header-section">
+      <h2>{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
+      <p>Manage product information and inventory details</p>
     </div>
 
+    <form [formGroup]="productForm">
+
+      <!-- Basic Information -->
+      <div class="section-card">
+        <h3>Basic Information</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Title</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="title">
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="category">
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Description</label>
+          <textarea
+            rows="4"
+            class="form-control"
+            formControlName="description">
+          </textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Brand</label>
+            <input
+              class="form-control"
+              formControlName="brand">
+          </div>
+
+          <div class="form-group">
+            <label>SKU</label>
+            <input
+              class="form-control"
+              formControlName="sku">
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="section-card">
+        <h3>Pricing & Inventory</h3>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label>Price ($)</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="price">
+          </div>
+
+          <div class="form-group">
+            <label>Discount (%)</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="discountPercentage">
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label>Rating</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="rating">
+          </div>
+
+          <div class="form-group">
+            <label>Stock</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="stock">
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label>Minimum Order Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="minimumOrderQuantity">
+        </div>
+
+      </div>
+
+      <!-- Physical Dimensions -->
+      <div class="section-card">
+        <h3>Dimensions</h3>
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label>Width</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="width">
+          </div>
+
+          <div class="form-group">
+            <label>Height</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="height">
+          </div>
+
+          <div class="form-group">
+            <label>Depth</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="depth">
+          </div>
+
+          <div class="form-group">
+            <label>Weight</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="weight">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Policies -->
+      <div class="section-card">
+        <h3>Policies & Shipping</h3>
+
+        <div class="form-group">
+          <label>Warranty Information</label>
+          <input
+            class="form-control"
+            formControlName="warrantyInformation">
+        </div>
+
+        <div class="form-group">
+          <label>Shipping Information</label>
+          <input
+            class="form-control"
+            formControlName="shippingInformation">
+        </div>
+
+        <div class="form-group">
+          <label>Return Policy</label>
+          <input
+            class="form-control"
+            formControlName="returnPolicy">
+        </div>
+
+        <div class="form-group">
+          <label>Availability Status</label>
+          <select
+            class="form-control"
+            formControlName="availabilityStatus">
+            <option>In Stock</option>
+            <option>Out of Stock</option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <!-- Buttons -->
+      <div class="button-group">
+
+        <button
+          type="button"
+          class="cancel-btn">
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="save-btn"
+          (click)="saveProduct()">
+
+          {{ isEditMode ? 'Update Product' : 'Save Product' }}
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
 </div>

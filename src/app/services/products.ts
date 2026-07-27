@@ -11,6 +11,8 @@ export class Products {
 
   private readonly baseSearchUrl = 'https://dummyjson.com/products';
 
+  private readonly baseAddUrl = 'https://dummyjson.com/products/add';
+
   constructor(private http: HttpClient) {}
 
   getProducts(page: number, limit: number,searchText:string): Observable<any> {
@@ -27,13 +29,14 @@ export class Products {
 
   getProductsWithSearch(page: number, limit: number,searchText:string): Observable<any> {
     const skip = (page - 1) * limit;
-
     const params = new HttpParams()
       .set('limit', limit)
       .set('skip', skip)
       .set('q', searchText);
-
     return this.http.get<any>(this.baseSearchUrl, { params });
+  }
 
+  addProducts(payload:any): Observable<any> {
+    return this.http.get<any>(this.baseAddUrl, payload);
   }
 }
