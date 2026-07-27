@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -21,8 +21,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './add-product.html',
   styleUrl: './add-product.css',
 })
-export class AddProduct {
-
+export class AddProduct implements OnInit {
 
   loading = false;
   productForm: FormGroup;
@@ -33,7 +32,7 @@ export class AddProduct {
   isEditMode = false;
   productId!: number;
 
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute,private productService:Productservice,private messageService:MessageService) {
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private productService: Productservice, private messageService: MessageService) {
 
     this.productForm = this.fb.group({
       title: [''],
@@ -59,9 +58,28 @@ export class AddProduct {
   }
 
 
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const productId = params['id'];
+      if (productId) {
+        this.isEditMode = true;
+        this.getProduct(productId);
+      }
+    });
+
+  }
+
+  getProduct(id: number): void {
+    this.productService.getProductById(id).subscribe(res => {
+      console.log("res", res);
+      this.productForm.patchValue(res);
+    })
+  }
+
+
   saveProduct(): void {
     console.log("this.productForm", this.productForm.value);
-     this.loading = true;
+    this.loading = true;
     this.productService.addProducts(this.productForm.value).subscribe({
       next: (res: any) => {
         this.messageService.add({
@@ -76,7 +94,7 @@ export class AddProduct {
 
       }, error: (error: any) => {
         console.log("error", error.error.message);
-         this.loading = false;
+        this.loading = false;
         this.messageService.add({
           severity: 'error',
           summary: 'Login Failed',

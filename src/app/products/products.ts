@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { DataTable } from '../shared/data-table/data-table';
 import { Productservice } from '../services/productservice';
@@ -20,9 +20,11 @@ export class Products implements OnInit {
   totalRecords = 0;
   loading = false;
   searchText = '';
-  rediectUrl = "/add-products"
+  rediectUrl = "/add-products";
 
-  constructor(private router: Router, private productService: Productservice, private cdr: ChangeDetectorRef) {
+  editProductData:any={}
+
+  constructor(private router: Router, private productService: Productservice, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {
 
   }
 
@@ -73,7 +75,9 @@ productColumns: TableColumn[] = [
 
   ngOnInit(): void {
     this.loadProducts();
+    
   }
+
 
   loadProducts(): void {
     this.loading = true;
@@ -112,6 +116,20 @@ productColumns: TableColumn[] = [
     this.searchText = searchText;
     this.currentPage = 1;
     this.loadProducts();
+
+  }
+
+  editProduct(payload:any):void{
+    console.log("dineshhhh",payload);
+    this.editProductData = payload;
+    this.router.navigate(
+    ['/add-products'],
+    {
+      queryParams: {
+        id: payload.id
+      }
+    }
+  );
 
   }
 

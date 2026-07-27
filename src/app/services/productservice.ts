@@ -41,4 +41,8 @@ export class Productservice {
    addProducts(payload:any): Observable<any> {
     return this.http.post<any>(this.baseAddUrl, payload);
   }
+
+  getProductById(id:number): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
+  }
 }
