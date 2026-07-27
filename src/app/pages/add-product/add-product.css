@@ -142,3 +142,40 @@ textarea.form-control {
     width: 100%;
   }
 }
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 55px;
+  height: 55px;
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.page-loader p {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -6,6 +6,13 @@
   </div>
 </div>
 
+<div class="page-loader" *ngIf="loading">
+  <div class="loader"></div>
+  <p>
+    {{ isEditMode ? 'Loading Product Details...' : 'Saving Product...' }}
+  </p>
+</div>
+
 <div class="form-container">
   <div class="form-card">
 
@@ -190,7 +197,7 @@
             class="form-control"
             formControlName="availabilityStatus">
             <option>In Stock</option>
-            <option>Out of Stock</option>
+            <option>Low Stock</option>
           </select>
         </div>
 

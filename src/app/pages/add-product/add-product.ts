@@ -22,18 +22,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './add-product.css',
 })
 export class AddProduct implements OnInit {
-
   loading = false;
   productForm: FormGroup;
-
   imagePreview: string | ArrayBuffer | null = null;
-
   selectedFile!: File;
   isEditMode = false;
   productId!: number;
-
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private productService: Productservice, private messageService: MessageService) {
-
     this.productForm = this.fb.group({
       title: [''],
       description: [''],
@@ -54,10 +49,7 @@ export class AddProduct implements OnInit {
       availabilityStatus: ['In Stock'],
       returnPolicy: [''],
     });
-
   }
-
-
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const productId = params['id'];
@@ -66,15 +58,36 @@ export class AddProduct implements OnInit {
         this.getProduct(productId);
       }
     });
-
   }
+ 
 
   getProduct(id: number): void {
-    this.productService.getProductById(id).subscribe(res => {
-      console.log("res", res);
-      this.productForm.patchValue(res);
-    })
-  }
+  this.loading = true;
+  this.productService.getProductById(id)
+    .subscribe({
+      next: (res: any) => {
+        console.log('res', res);
+        this.productForm.patchValue({
+          ...res,
+          width: res?.dimensions?.width,
+          height: res?.dimensions?.height,
+          depth: res?.dimensions?.depth,
+          availabilityStatus:res.availabilityStatus
+        });
+        this.loading = false;
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.loading = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load product details',
+          life: 3000
+        });
+      }
+    });
+}
 
 
   saveProduct(): void {
