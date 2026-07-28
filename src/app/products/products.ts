@@ -1,6 +1,6 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit,inject } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { Productservice } from '../services/productservice';
 import { CommonModule } from '@angular/common';
@@ -23,13 +23,10 @@ export class Products implements OnInit {
 
   editProductData: any = {};
 
-  constructor(
-    private router: Router,
-    private productService: Productservice,
-    private cdr: ChangeDetectorRef,
-    private route: ActivatedRoute
-  ) {}
-
+  private  readonly  router = inject(Router);
+  private  readonly productService = inject(Productservice);
+  private  readonly cdr = inject(ChangeDetectorRef);
+  
   productColumns: TableColumn[] = [
     {
       field: 'images',
