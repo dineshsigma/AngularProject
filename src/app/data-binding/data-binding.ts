@@ -8,25 +8,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './data-binding.css',
 })
 export class DataBinding {
+  firstName = 'Dinesh';
+  lastName = 'Gundelugunta';
+  rollNo = 89898;
+  isActive = true;
+  currrentDate = new Date();
+  myPlaceHolder = 'Enter your fulll name';
+  div1ClassName = 'bg-primary';
+  selectedCity = '';
 
-  firstName  = "Dinesh";
-  lastName = "Gundelugunta";
-  rollNo =  89898;
-  isActive  = true;
-  currrentDate  =  new Date();
-  myPlaceHolder  =  "Enter your fulll name";
-  div1ClassName =  "bg-primary";
-  selectedCity = "";
-
-  constructor(){
-    console.log(this.firstName,"firstName");
+  constructor() {
+    console.log(this.firstName, 'firstName');
   }
 
-  showWelcomeMessage(){
-    alert("Welcome Angular tutorials");
+  showWelcomeMessage() {
+    alert('Welcome Angular tutorials');
   }
 
-  onCityChange(){
-    console.log("city changes");
+  onCityChange() {
+    console.log('city changes');
   }
 }

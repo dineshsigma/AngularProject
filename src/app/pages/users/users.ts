@@ -7,6 +7,4 @@ import { Employee } from '../../employee/employee';
   templateUrl: './users.html',
   styleUrl: './users.css',
 })
-export class Users {
-
-}
+export class Users {}

@@ -5,16 +5,15 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-print-job',
-  imports: [CommonModule,FormsModule],
-  standalone: true, 
+  imports: [CommonModule, FormsModule],
+  standalone: true,
   templateUrl: './print-job.html',
   styleUrl: './print-job.css',
 })
 export class PrintJob implements OnInit {
- 
-jobs: any[] = [];
-filteredJobs: any[] = [];
-loading = false;   // ✅ LOADER FLAG
+  jobs: any[] = [];
+  filteredJobs: any[] = [];
+  loading = false; // ✅ LOADER FLAG
 
   // ✅ Pagination
   page = 1;
@@ -32,22 +31,23 @@ loading = false;   // ✅ LOADER FLAG
   loadJobs() {
     this.loading = true;
     this.service.getAllJobs().subscribe({
-      next: (data:any) => {
+      next: (data: any) => {
         this.jobs = data.content;
-        this.filteredJobs = data.content;  // ✅ initial load
-        console.log("filtereddata",this.filteredJobs);
-        console.log("Jobsdata",this.jobs);
+        this.filteredJobs = data.content; // ✅ initial load
+        console.log('filtereddata', this.filteredJobs);
+        console.log('Jobsdata', this.jobs);
         // this.loading = false;
-      }
+      },
     });
   }
 
   // ✅ Search filter
   filterJobs() {
-    this.filteredJobs = this.jobs.filter(job =>
-      job.ian?.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      job.status?.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      job.fileName?.toLowerCase().includes(this.searchText.toLowerCase())
+    this.filteredJobs = this.jobs.filter(
+      job =>
+        job.ian?.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        job.status?.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        job.fileName?.toLowerCase().includes(this.searchText.toLowerCase())
     );
     this.page = 1; // reset to first page
   }
@@ -61,7 +61,4 @@ loading = false;   // ✅ LOADER FLAG
   totalPages() {
     return Math.ceil(this.filteredJobs.length / this.pageSize);
   }
-
-
-  
 }

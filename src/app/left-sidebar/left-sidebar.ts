@@ -19,12 +19,12 @@ export class LeftSidebar {
     {
       routeLink: '/products',
       icon: 'fas fa-box-open',
-      label: 'Products'
+      label: 'Products',
     },
     {
       routeLink: '/users',
       icon: 'fas fa-users',
-      label: 'Users'
+      label: 'Users',
     },
     {
       routeLink: '/bulk-upload',
@@ -38,7 +38,6 @@ export class LeftSidebar {
     },
   ];
 
-
   toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed());
   }
@@ -46,5 +45,4 @@ export class LeftSidebar {
   closeSidenav(): void {
     this.changeIsLeftSidebarCollapsed.emit(true);
   }
-
 }

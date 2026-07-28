@@ -15,14 +15,18 @@
     <div *ngIf="showSearch" class="search-container">
       <div class="search-box">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" placeholder="Search..." [(ngModel)]="searchText" (input)="applySearch()">
+        <input
+          type="text"
+          placeholder="Search..."
+          [(ngModel)]="searchText"
+          (input)="applySearch()"
+        />
       </div>
     </div>
     <button *ngIf="showAddButton" class="add-btn" (click)="addRecord()">
       <i class="fas fa-plus"></i>
       {{ addButtonText }}
     </button>
-
   </div>
   <div class="table-container">
     <div class="table-card">
@@ -37,7 +41,7 @@
 
     </div> -->
       <div class="table-wrapper">
-        <table class="custom-table" >
+        <table class="custom-table">
           <thead>
             <tr>
               <th *ngFor="let column of columns" [style.width]="column.width">
@@ -47,30 +51,40 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data" class="clickable-row"  (click)="viewProduct(row)">
+            <tr *ngFor="let row of data" class="clickable-row" (click)="viewProduct(row)">
               <td *ngFor="let column of columns">
                 <ng-container [ngSwitch]="column.type">
-                  <img *ngSwitchCase="'image'" [src]="getImageSource(row[column.field])" class="table-image" alt="Image">
-                  <span *ngSwitchCase="'currency'">
-                    ₹{{ row[column.field] }}
-                  </span>
-                  <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="getBadgeStyle(row[column.field])">
+                  <img
+                    *ngSwitchCase="'image'"
+                    [src]="getImageSource(row[column.field])"
+                    class="table-image"
+                    alt="Image"
+                  />
+                  <span *ngSwitchCase="'currency'"> ₹{{ row[column.field] }} </span>
+                  <span
+                    *ngSwitchCase="'badge'"
+                    class="status-badge"
+                    [ngClass]="getBadgeStyle(row[column.field])"
+                  >
                     {{ row[column.field] }}
                   </span>
-                  <span *ngSwitchDefault class="table-text" [pTooltip]="
-    row[column.field] &&
-    row[column.field].toString().length > 10
-      ? row[column.field]
-      : ''
-  " tooltipPosition="top" tooltipStyleClass="custom-tooltip">
+                  <span
+                    *ngSwitchDefault
+                    class="table-text"
+                    [pTooltip]="
+                      row[column.field] && row[column.field].toString().length > 10
+                        ? row[column.field]
+                        : ''
+                    "
+                    tooltipPosition="top"
+                    tooltipStyleClass="custom-tooltip"
+                  >
                     {{
-                    row[column.field] &&
-                    row[column.field].toString().length > 15
-                    ? (row[column.field].toString() | slice:0:15) + '...'
-                    : row[column.field]
+                      row[column.field] && row[column.field].toString().length > 15
+                        ? (row[column.field].toString() | slice: 0 : 15) + '...'
+                        : row[column.field]
                     }}
                   </span>
-
                 </ng-container>
               </td>
               <td>
@@ -92,13 +106,9 @@
         <div class="page-size-container">
           <label>Rows Per Page</label>
           <select class="page-size-select" [value]="pageSize" (change)="changePageSize($event)">
-
             <option *ngFor="let option of pageSizeOptions" [value]="option">
-
               {{ option }}
-
             </option>
-
           </select>
         </div>
         <div class="pagination-controls">
@@ -112,7 +122,11 @@
             {{ totalPages }}
             ({{ totalRecords }} Records)
           </span>
-          <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          <button
+            class="pagination-btn"
+            (click)="nextPage()"
+            [disabled]="currentPage === totalPages"
+          >
             Next
             <i class="fas fa-chevron-right"></i>
           </button>
@@ -120,7 +134,6 @@
       </div>
     </div>
   </div>
-
 </div>
 <div class="modal-overlay" *ngIf="showDeleteModal">
   <div class="modal-container">
@@ -133,12 +146,8 @@
       <strong>{{ selectedRow?.name }}</strong> ?
     </p>
     <div class="button-group">
-      <button class="cancel-btn" (click)="closeDeleteModal()">
-        Cancel
-      </button>
-      <button class="confirm-delete-btn" (click)="confirmDelete()">
-        Delete
-      </button>
+      <button class="cancel-btn" (click)="closeDeleteModal()">Cancel</button>
+      <button class="confirm-delete-btn" (click)="confirmDelete()">Delete</button>
     </div>
   </div>
 </div>

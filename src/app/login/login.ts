@@ -11,10 +11,8 @@ import { MessageService } from 'primeng/api';
   standalone: true,
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule],
 })
-
-
 export class Login implements OnInit {
   loginForm!: FormGroup;
   private fb = inject(FormBuilder);
@@ -26,7 +24,7 @@ export class Login implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
@@ -37,29 +35,29 @@ export class Login implements OnInit {
     }
     this.loading = true;
     this.authService.logindummyApi(this.loginForm.value).subscribe({
-      next: (res) => {
+      next: res => {
         this.authService.saveUserData(res);
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
           detail: 'Login Successful',
-          life: 3000
+          life: 3000,
         });
         setTimeout(() => {
           this.router.navigate(['/dashbaord-slider']);
         }, 1500);
-
-      }, error: (error) => {
-        console.log("error", error.error.message);
+      },
+      error: error => {
+        console.log('error', error.error.message);
         this.loading = false;
         this.messageService.add({
           severity: 'error',
           summary: 'Login Failed',
           detail: error?.error?.message || 'Invalid username or password',
-          life: 3000
+          life: 3000,
         });
-      }
-    })
+      },
+    });
   }
   goToRegister() {
     this.router.navigate(['/registartion']);

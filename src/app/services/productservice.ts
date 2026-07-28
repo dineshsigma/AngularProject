@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Productservice {
-   private readonly baseUrl = 'https://dummyjson.com/products';
+  private readonly baseUrl = 'https://dummyjson.com/products';
 
   private readonly baseSearchUrl = 'https://dummyjson.com/products/search';
 
@@ -14,8 +14,7 @@ export class Productservice {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(page: number, limit: number,searchText:string): Observable<any> {
-
+  getProducts(page: number, limit: number, searchText: string): Observable<any> {
     const skip = (page - 1) * limit;
 
     const params = new HttpParams()
@@ -26,23 +25,19 @@ export class Productservice {
     return this.http.get<any>(this.baseUrl, { params });
   }
 
-  getProductsWithSearch(page: number, limit: number,searchText:string): Observable<any> {
+  getProductsWithSearch(page: number, limit: number, searchText: string): Observable<any> {
     const skip = (page - 1) * limit;
 
-    const params = new HttpParams()
-      .set('limit', limit)
-      .set('skip', skip)
-      .set('q', searchText);
+    const params = new HttpParams().set('limit', limit).set('skip', skip).set('q', searchText);
 
     return this.http.get<any>(this.baseSearchUrl, { params });
-
   }
 
-   addProducts(payload:any): Observable<any> {
+  addProducts(payload: any): Observable<any> {
     return this.http.post<any>(this.baseAddUrl, payload);
   }
 
-  getProductById(id:number): Observable<any>{
+  getProductById(id: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 }

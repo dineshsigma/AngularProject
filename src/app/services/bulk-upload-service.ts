@@ -6,21 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BulkUploadService {
-  private apiUrl =
-    'http://localhost:8080/api/employees/bulk-upload';
+  private apiUrl = 'http://localhost:8080/api/employees/bulk-upload';
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  uploadRecords(
-    records: any[]
-  ): Observable<any> {
-
-    return this.http.post(
-      this.apiUrl,
-      records
-    );
-
+  uploadRecords(records: any[]): Observable<any> {
+    return this.http.post(this.apiUrl, records);
   }
 }

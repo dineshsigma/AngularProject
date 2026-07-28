@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       positionClass: 'toast-top-left',
       timeOut: 3000,
       closeButton: true,
-      progressBar: true
-    })
-  ]
+      progressBar: true,
+    }),
+  ],
 };

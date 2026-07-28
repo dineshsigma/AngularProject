@@ -9,7 +9,7 @@
 
   padding: 0 24px;
 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .navbar-left {
@@ -48,140 +48,135 @@
 }
 
 .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .profile-icon {
-    font-size: 42px;
-    color: #2563eb;
+  font-size: 42px;
+  color: #2563eb;
 }
 
 .user-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: #111827;
-    line-height: 1.2;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
 }
 
 .user-email {
-    font-size: 12px;
-    color: #6b7280;
-    line-height: 1.2;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.2;
 }
-
 
 /* ==== light mode and dark mode =========== */
 
 .navbar {
-    height: 70px;
-    padding: 0 25px;
+  height: 70px;
+  padding: 0 25px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    background: var(--card-bg);
+  background: var(--card-bg);
 
-    border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .profile-icon {
-    font-size: 40px;
-    color: #2563eb;
+  font-size: 40px;
+  color: #2563eb;
 }
 
 .user-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-name {
-    font-weight: 600;
-    color: var(--text-color);
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .user-email {
-    font-size: 13px;
-    color: #64748b;
+  font-size: 13px;
+  color: #64748b;
 }
 
 .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 /* Theme Button */
 
 .theme-btn {
+  width: 42px;
+  height: 42px;
 
-    width: 42px;
-    height: 42px;
+  border: none;
 
-    border: none;
+  border-radius: 50%;
 
-    border-radius: 50%;
+  cursor: pointer;
 
-    cursor: pointer;
+  background: var(--bg-color);
 
-    background: var(--bg-color);
+  color: var(--text-color);
 
-    color: var(--text-color);
-
-    transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .theme-btn:hover {
+  transform: rotate(20deg);
 
-    transform: rotate(20deg);
-
-    background: #2563eb;
-    color: white;
+  background: #2563eb;
+  color: white;
 }
 
 .theme-btn i {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 /* Logout */
 
 .logout-btn {
+  border: none;
 
-    border: none;
+  padding: 10px 20px;
 
-    padding: 10px 20px;
+  border-radius: 10px;
 
-    border-radius: 10px;
+  background: #ef4444;
 
-    background: #ef4444;
+  color: white;
 
-    color: white;
+  font-weight: 600;
 
-    font-weight: 600;
+  cursor: pointer;
 
-    cursor: pointer;
-
-    transition: .3s;
+  transition: 0.3s;
 }
 
 .logout-btn:hover {
-
-    background: #dc2626;
+  background: #dc2626;
 }
 
 .profile-image {

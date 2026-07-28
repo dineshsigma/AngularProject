@@ -9,8 +9,8 @@ import { Child } from '../child/child';
   styleUrl: './parent.css',
 })
 export class Parent {
-  name  = "Gundelugunta Dinesh";
-  userName  = "Tejs";
+  name = 'Gundelugunta Dinesh';
+  userName = 'Tejs';
   age = 27;
   showProfile = true;
 
@@ -21,5 +21,4 @@ export class Parent {
   toggleProfile() {
     this.showProfile = !this.showProfile;
   }
-
 }

@@ -10,7 +10,7 @@
   border-radius: 18px;
   padding: 30px;
   margin-bottom: 25px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .main-image {
@@ -71,7 +71,7 @@
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -80,7 +80,7 @@
   border-radius: 18px;
   padding: 25px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .details-card h3 {
@@ -138,7 +138,6 @@
 }
 
 @media (max-width: 768px) {
-
   .product-header-card {
     flex-direction: column;
   }
@@ -188,7 +187,6 @@
   }
 }
 
-
 .skeleton-container {
   display: flex;
   gap: 20px;
@@ -227,7 +225,7 @@
 
 @keyframes shimmer {
   0% {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   50% {
@@ -235,6 +233,6 @@
   }
 
   100% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }

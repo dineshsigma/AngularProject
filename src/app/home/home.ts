@@ -1,10 +1,4 @@
-
-import {
-  Component,
-  Input,
-  OnInit,
-  AfterViewInit
-} from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +8,7 @@ import {
 })
 export class Home implements OnInit, AfterViewInit {
   @Input() userName!: string;
-  
+
   ngOnInit(): void {
     console.log('ngOnInit called');
     this.startTracking();
@@ -23,6 +17,6 @@ export class Home implements OnInit, AfterViewInit {
     console.log('ngAfterViewInit called');
   }
   startTracking() {
-    console.log("start Tracking ........")
+    console.log('start Tracking ........');
   }
 }

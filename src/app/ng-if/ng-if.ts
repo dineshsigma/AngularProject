@@ -8,14 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './ng-if.css',
 })
 export class NgIf {
+  div1Viasiable: boolean = true;
 
-  div1Viasiable :boolean  = true;
-
-  hideDiv(){
+  hideDiv() {
     this.div1Viasiable = false;
   }
 
-   showDiv(){
+  showDiv() {
     this.div1Viasiable = true;
   }
 }

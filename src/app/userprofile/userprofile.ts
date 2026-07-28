@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,7 +21,7 @@ export class Userprofile {
     location: 'Hyderabad',
     designation: 'Senior Engineer',
     department: 'Engineering',
-    profileImage: ''
+    profileImage: '',
   };
 
   getInitials(): string {

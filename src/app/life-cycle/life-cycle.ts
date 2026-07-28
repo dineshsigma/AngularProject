@@ -1,5 +1,12 @@
-
-import { Component, OnInit ,AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked, OnDestroy} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  AfterViewChecked,
+  AfterContentInit,
+  AfterContentChecked,
+  OnDestroy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-life-cycle',
@@ -7,34 +14,40 @@ import { Component, OnInit ,AfterViewInit, AfterViewChecked, AfterContentInit, A
   templateUrl: './life-cycle.html',
   styleUrl: './life-cycle.css',
 })
-export class LifeCycle implements OnInit,AfterViewInit,AfterViewChecked,AfterContentInit,AfterContentChecked,OnDestroy {
-
-  constructor(){
-    console.log("constructor");
+export class LifeCycle
+  implements
+    OnInit,
+    AfterViewInit,
+    AfterViewChecked,
+    AfterContentInit,
+    AfterContentChecked,
+    OnDestroy
+{
+  constructor() {
+    console.log('constructor');
   }
 
   ngOnInit(): void {
-    console.log("ngOnInit()");
+    console.log('ngOnInit()');
   }
 
-  ngAfterViewInit():void{
-     console.log("ngAfterViewInit");
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
   }
 
   ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked()");
+    console.log('ngAfterViewChecked()');
   }
 
   ngAfterContentInit(): void {
-     console.log("ngAfterContentInit()");
+    console.log('ngAfterContentInit()');
   }
 
   ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked()");
+    console.log('ngAfterContentChecked()');
   }
 
   ngOnDestroy(): void {
-    console.log("ngOnDestroy()");
+    console.log('ngOnDestroy()');
   }
-
 }

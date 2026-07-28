@@ -8,15 +8,11 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registartion',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './registartion.html',
-  styleUrls: ['./registartion.css']
+  styleUrls: ['./registartion.css'],
 })
 export class Registartion {
-
   registerForm!: FormGroup;
 
   constructor(
@@ -26,21 +22,20 @@ export class Registartion {
     private router: Router
   ) {}
 
-
   roles = [
-  {
-    roleId: '11111111-1111-1111-1111-111111111111',
-    roleName: 'ADMIN'
-  },
-  {
-    roleId: '22222222-2222-2222-2222-222222222222',
-    roleName: 'USER'
-  },
-  {
-    roleId: '33333333-3333-3333-3333-333333333333',
-    roleName: 'MANAGER'
-  }
-];
+    {
+      roleId: '11111111-1111-1111-1111-111111111111',
+      roleName: 'ADMIN',
+    },
+    {
+      roleId: '22222222-2222-2222-2222-222222222222',
+      roleName: 'USER',
+    },
+    {
+      roleId: '33333333-3333-3333-3333-333333333333',
+      roleName: 'MANAGER',
+    },
+  ];
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -52,13 +47,12 @@ export class Registartion {
       personalDetails: this.fb.group({
         aadharNumber: ['', Validators.required],
         address: ['', Validators.required],
-        panCard: ['', Validators.required]
-      })
+        panCard: ['', Validators.required],
+      }),
     });
   }
 
   register(): void {
-
     if (this.registerForm.invalid) {
       this.toastr.error('Please fill all required fields');
       return;
@@ -66,21 +60,18 @@ export class Registartion {
 
     // console.log("this.registerForm.value",this.registerForm.value);
 
-    this.authService.register(this.registerForm.value)
-      .subscribe({
-        next: () => {
-          this.toastr.success('Registration Successful');
-          setTimeout(() => {
-            this.router.navigate(['/login']);
-          }, 1000);
-        },
+    this.authService.register(this.registerForm.value).subscribe({
+      next: () => {
+        this.toastr.success('Registration Successful');
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
+      },
 
-        error: (err) => {
-          this.toastr.error(
-            err?.error?.message || 'Registration Failed'
-          );
-        }
-      });
+      error: err => {
+        this.toastr.error(err?.error?.message || 'Registration Failed');
+      },
+    });
   }
 
   goToLogin() {

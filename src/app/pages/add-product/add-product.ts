@@ -1,18 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Productservice } from '../../services/productservice';
 import { MessageService } from 'primeng/api';
 
-import {
-  ActivatedRoute
-} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-add-product',
@@ -66,37 +59,34 @@ export class AddProduct implements OnInit {
     });
   }
 
-
   getProduct(id: number): void {
     this.loading = true;
-    this.productService.getProductById(id)
-      .subscribe({
-        next: (res) => {
-          this.productForm.patchValue({
-            ...res,
-            width: res?.dimensions?.width,
-            height: res?.dimensions?.height,
-            depth: res?.dimensions?.depth,
-            availabilityStatus: res.availabilityStatus
-          });
-          this.loading = false;
-        },
-        error: (error) => {
-          console.log(error);
-          this.loading = false;
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Failed to load product details',
-            life: 3000
-          });
-        }
-      });
+    this.productService.getProductById(id).subscribe({
+      next: res => {
+        this.productForm.patchValue({
+          ...res,
+          width: res?.dimensions?.width,
+          height: res?.dimensions?.height,
+          depth: res?.dimensions?.depth,
+          availabilityStatus: res.availabilityStatus,
+        });
+        this.loading = false;
+      },
+      error: error => {
+        console.log(error);
+        this.loading = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load product details',
+          life: 3000,
+        });
+      },
+    });
   }
 
-
   saveProduct(): void {
-    console.log("this.productForm", this.productForm.value);
+    console.log('this.productForm', this.productForm.value);
     this.loading = true;
     this.productService.addProducts(this.productForm.value).subscribe({
       next: () => {
@@ -104,26 +94,24 @@ export class AddProduct implements OnInit {
           severity: 'success',
           summary: 'Success',
           detail: 'Products Added Success',
-          life: 3000
+          life: 3000,
         });
         setTimeout(() => {
           this.router.navigate(['/products']);
         }, 1500);
-
-      }, error: (error) => {
-        console.log("error", error.error.message);
+      },
+      error: error => {
+        console.log('error', error.error.message);
         this.loading = false;
         this.messageService.add({
           severity: 'error',
           summary: 'Login Failed',
           detail: error?.error?.message || 'products Adding Failed',
-          life: 3000
+          life: 3000,
         });
-      }
-    })
+      },
+    });
 
     this.router.navigate(['/products']);
   }
-
-
 }

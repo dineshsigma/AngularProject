@@ -1,5 +1,4 @@
-
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-data-table',
@@ -8,8 +7,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './data-table.css',
 })
 export class DataTable {
-  
-@Input() columns: any[] = [];
+  @Input() columns: any[] = [];
   @Input() data: any[] = [];
 
   @Output() edit = new EventEmitter<any>();
@@ -22,5 +20,4 @@ export class DataTable {
   onDelete(row: any) {
     this.delete.emit(row);
   }
-
 }

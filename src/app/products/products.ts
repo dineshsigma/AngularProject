@@ -12,93 +12,89 @@ import { TableColumn } from '../models/table-column.model';
   styleUrl: './products.css',
 })
 export class Products implements OnInit {
-
   productData: any[] = [];
   currentPage = 1;
   pageSize = 10;
   totalRecords = 0;
   loading = false;
   searchText = '';
-  rediectUrl = "/add-products";
-  viewPageUrl='view-product'
+  rediectUrl = '/add-products';
+  viewPageUrl = 'view-product';
 
-  editProductData:any={}
+  editProductData: any = {};
 
-  constructor(private router: Router, private productService: Productservice, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private productService: Productservice,
+    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute
+  ) {}
 
-  }
-
-productColumns: TableColumn[] = [
-  {
-    field: 'images',
-    header: 'Image',
-    type: 'image',
-    width: '80px'
-  },
-  {
-    field: 'title',
-    header: 'Title',
-    width: '160px'
-  },
-  {
-    field: 'category',
-    header: 'Category',
-    width: '120px'
-  },
-  {
-    field: 'description',
-    header: 'Description',
-    width: '150px'
-  },
-  {
-    field: 'price',
-    header: 'Price',
-    width: '80px'
-  },
-  {
-    field: 'rating',
-    header: 'Rating',
-    width: '80px'
-  },
-  {
-    field: 'stock',
-    header: 'Stock',
-    width: '80px'
-  },
-  {
-    field: 'availabilityStatus',
-    header: 'Status',
-    type: 'badge',
-    width: '100px'
-  }
-];
+  productColumns: TableColumn[] = [
+    {
+      field: 'images',
+      header: 'Image',
+      type: 'image',
+      width: '80px',
+    },
+    {
+      field: 'title',
+      header: 'Title',
+      width: '160px',
+    },
+    {
+      field: 'category',
+      header: 'Category',
+      width: '120px',
+    },
+    {
+      field: 'description',
+      header: 'Description',
+      width: '150px',
+    },
+    {
+      field: 'price',
+      header: 'Price',
+      width: '80px',
+    },
+    {
+      field: 'rating',
+      header: 'Rating',
+      width: '80px',
+    },
+    {
+      field: 'stock',
+      header: 'Stock',
+      width: '80px',
+    },
+    {
+      field: 'availabilityStatus',
+      header: 'Status',
+      type: 'badge',
+      width: '100px',
+    },
+  ];
 
   ngOnInit(): void {
     this.loadProducts();
-    
   }
-
 
   loadProducts(): void {
     this.loading = true;
-    this.productService.getProductsWithSearch(this.currentPage,
-      this.pageSize,
-      this.searchText)
+    this.productService
+      .getProductsWithSearch(this.currentPage, this.pageSize, this.searchText)
       .subscribe({
-        next: (response) => {
-          this.productData = [...response.products]
+        next: response => {
+          this.productData = [...response.products];
           this.totalRecords = Number(response.total);
           this.loading = false;
           this.cdr.detectChanges();
         },
 
-        error: (error) => {
+        error: error => {
           this.loading = false;
-          console.error(
-            'API Error',
-            error
-          );
-        }
+          console.error('API Error', error);
+        },
       });
   }
 
@@ -116,22 +112,15 @@ productColumns: TableColumn[] = [
     this.searchText = searchText;
     this.currentPage = 1;
     this.loadProducts();
-
   }
 
-  editProduct(payload:any):void{
-    console.log("dineshhhh",payload);
+  editProduct(payload: any): void {
+    console.log('dineshhhh', payload);
     this.editProductData = payload;
-    this.router.navigate(
-    ['/add-products'],
-    {
+    this.router.navigate(['/add-products'], {
       queryParams: {
-        id: payload.id
-      }
-    }
-  );
-
+        id: payload.id,
+      },
+    });
   }
-
-
 }

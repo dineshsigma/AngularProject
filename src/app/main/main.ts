@@ -5,12 +5,12 @@ import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-main',
-  imports: [RouterOutlet, CommonModule,Navbar],
+  imports: [RouterOutlet, CommonModule, Navbar],
   templateUrl: './main.html',
   styleUrl: './main.css',
 })
 export class Main {
-   isLeftSidebarCollapsed = input.required<boolean>();
+  isLeftSidebarCollapsed = input.required<boolean>();
   screenWidth = input.required<number>();
   sizeClass = computed(() => {
     const isLeftSidebarCollapsed = this.isLeftSidebarCollapsed();

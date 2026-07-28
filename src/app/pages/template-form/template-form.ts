@@ -8,22 +8,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './template-form.css',
 })
 export class TemplateForm {
-
   userObj: any = {
-    "firstName": "",
-    "lastName": "",
-    "userName": "",
-    "city": "",
-    "state": "",
-    "ZipCode": "",
-    "isTermsAggre": false
-  }
-  
+    firstName: '',
+    lastName: '',
+    userName: '',
+    city: '',
+    state: '',
+    ZipCode: '',
+    isTermsAggre: false,
+  };
 
-  onSubmit(){
-
-    let formValues  = this.userObj;
-    console.log(formValues,"formValues")
-
+  onSubmit() {
+    let formValues = this.userObj;
+    console.log(formValues, 'formValues');
   }
 }

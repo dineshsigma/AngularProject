@@ -39,52 +39,51 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: Home
+        component: Home,
       },
       {
         path: 'products',
-        component: Products
+        component: Products,
       },
       {
         path: 'add-products',
-        component: AddProduct
+        component: AddProduct,
       },
       {
         path: 'edit-product/:id',
-        component: AddProduct
+        component: AddProduct,
       },
       {
         path: 'users',
-        component: Users
+        component: Users,
       },
       {
         path: 'dashbaord-slider',
-        component: DashboardSliders
+        component: DashboardSliders,
       },
       {
         path: 'user-profile',
-        component: Userprofile
+        component: Userprofile,
       },
       {
         path: 'bulk-upload',
-        component: BulkUpload
+        component: BulkUpload,
       },
-       {
+      {
         path: 'view-product',
-        component: ViewProduct
-      }
-    ]
+        component: ViewProduct,
+      },
+    ],
   },
 
   // ✅ Protected
   { path: 'parent', component: Parent, canActivate: [authGuard] },
   { path: 'employee', component: Employee, canActivate: [authGuard] },
   { path: 'printform', component: PrintJob, canActivate: [authGuard] },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

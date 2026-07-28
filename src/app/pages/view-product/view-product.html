@@ -12,10 +12,7 @@
 <div class="product-view-container">
   <div class="product-header-card">
     <div class="image-section">
-      <img
-        [src]="product.thumbnail"
-        alt="Product Image"
-        class="main-image">
+      <img [src]="product.thumbnail" alt="Product Image" class="main-image" />
     </div>
     <div class="product-info">
       <h1>{{ product.title }}</h1>
@@ -28,12 +25,8 @@
         </span>
       </div>
       <div class="price-section">
-        <span class="price">
-          ${{ product.price }}
-        </span>
-        <span class="discount">
-          {{ product.discountPercentage }}% OFF
-        </span>
+        <span class="price"> ${{ product.price }} </span>
+        <span class="discount"> {{ product.discountPercentage }}% OFF </span>
       </div>
       <div class="info-grid">
         <div>
@@ -66,27 +59,15 @@
   <div class="details-card">
     <h3>Inventory & Pricing</h3>
     <div class="details-grid">
-      <div>
-        Price
-      </div>
-      <div>
-        ${{ product.price }}
-      </div>
-      <div>
-        Discount
-      </div>
-      <div>
-        {{ product.discountPercentage }}%
-      </div>
-      <div>
-        Stock
-      </div>
+      <div>Price</div>
+      <div>${{ product.price }}</div>
+      <div>Discount</div>
+      <div>{{ product.discountPercentage }}%</div>
+      <div>Stock</div>
       <div>
         {{ product.stock }}
       </div>
-      <div>
-        Minimum Order
-      </div>
+      <div>Minimum Order</div>
       <div>
         {{ product.minimumOrderQuantity }}
       </div>
@@ -122,9 +103,7 @@
   <div class="details-card">
     <h3>Tags</h3>
     <div class="tag-container">
-      <span
-        class="tag"
-        *ngFor="let tag of product.tags">
+      <span class="tag" *ngFor="let tag of product.tags">
         {{ tag }}
       </span>
     </div>
@@ -133,10 +112,7 @@
   <div class="details-card">
     <h3>Product Gallery</h3>
     <div class="gallery">
-      <img
-        *ngFor="let image of product.images"
-        [src]="image"
-        class="gallery-image">
+      <img *ngFor="let image of product.images" [src]="image" class="gallery-image" />
     </div>
   </div>
 </div>

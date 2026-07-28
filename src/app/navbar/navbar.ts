@@ -19,24 +19,14 @@ export class Navbar implements OnInit {
     this.user = this.authService.getUser();
     const savedTheme = localStorage.getItem('theme') || 'light';
     this.isDarkMode = savedTheme === 'dark';
-    document.body.setAttribute(
-      'data-theme',
-      savedTheme
-    );
+    document.body.setAttribute('data-theme', savedTheme);
   }
 
   toggleTheme(): void {
     this.isDarkMode = !this.isDarkMode;
-    const theme =
-      this.isDarkMode ? 'dark' : 'light';
-    document.body.setAttribute(
-      'data-theme',
-      theme
-    );
-    localStorage.setItem(
-      'theme',
-      theme
-    );
+    const theme = this.isDarkMode ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }
   logout() {
     localStorage.clear();

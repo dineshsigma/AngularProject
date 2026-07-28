@@ -1,33 +1,29 @@
 <nav class="navbar">
-    <div class="navbar-left">
-        <!-- <i class="bi bi-person-circle profile-icon"></i> -->
-        <div class="profile-wrapper">
-            @if (user?.image) {
-            <img [src]="user.image" alt="Profile" class="profile-image">
-            } @else {
-            <i class="bi bi-person-circle profile-icon"></i>
-            }
-        </div>
-        <div class="user-info">
-            <span class="user-name">
-                {{user.firstName}} {{user.lastName}}
-            </span>
-            <span class="user-email">
-                {{user.email}}
-            </span>
-        </div>
+  <div class="navbar-left">
+    <!-- <i class="bi bi-person-circle profile-icon"></i> -->
+    <div class="profile-wrapper">
+      @if (user?.image) {
+        <img [src]="user.image" alt="Profile" class="profile-image" />
+      } @else {
+        <i class="bi bi-person-circle profile-icon"></i>
+      }
     </div>
-    <div class="navbar-right">
-        <!-- Theme Toggle -->
-        <button class="theme-btn" (click)="toggleTheme()">
-            @if (!isDarkMode) {
-            <i class="bi bi-moon-fill"></i>
-            } @else {
-            <i class="bi bi-sun-fill"></i>
-            }
-        </button>
-        <button class="logout-btn" (click)="logout()">
-            Logout
-        </button>
+    <div class="user-info">
+      <span class="user-name"> {{ user.firstName }} {{ user.lastName }} </span>
+      <span class="user-email">
+        {{ user.email }}
+      </span>
     </div>
+  </div>
+  <div class="navbar-right">
+    <!-- Theme Toggle -->
+    <button class="theme-btn" (click)="toggleTheme()">
+      @if (!isDarkMode) {
+        <i class="bi bi-moon-fill"></i>
+      } @else {
+        <i class="bi bi-sun-fill"></i>
+      }
+    </button>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
 </nav>

@@ -3,10 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Products {
-
   private readonly baseUrl = 'https://dummyjson.com/users';
 
   private readonly baseSearchUrl = 'https://dummyjson.com/products';
@@ -15,28 +14,22 @@ export class Products {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(page: number, limit: number,searchText:string): Observable<any> {
-
+  getProducts(page: number, limit: number, searchText: string): Observable<any> {
     const skip = (page - 1) * limit;
 
-    const params = new HttpParams()
-      .set('limit', limit)
-      .set('skip', skip)
-      // .set('select', 'title,price');
+    const params = new HttpParams().set('limit', limit).set('skip', skip);
+    // .set('select', 'title,price');
 
     return this.http.get<any>(this.baseUrl, { params });
   }
 
-  getProductsWithSearch(page: number, limit: number,searchText:string): Observable<any> {
+  getProductsWithSearch(page: number, limit: number, searchText: string): Observable<any> {
     const skip = (page - 1) * limit;
-    const params = new HttpParams()
-      .set('limit', limit)
-      .set('skip', skip)
-      .set('q', searchText);
+    const params = new HttpParams().set('limit', limit).set('skip', skip).set('q', searchText);
     return this.http.get<any>(this.baseSearchUrl, { params });
   }
 
-  addProducts(payload:any): Observable<any> {
+  addProducts(payload: any): Observable<any> {
     return this.http.get<any>(this.baseAddUrl, payload);
   }
 }

@@ -4,7 +4,7 @@
   padding: 25px;
   border-radius: 10px;
   background-color: #f4f6f9;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -37,7 +37,6 @@ button:disabled {
   color: red;
   font-size: 12px;
 }
-
 
 .register-bg {
   background: #e5e5e5;
@@ -90,12 +89,7 @@ button:disabled {
 
   color: white;
 
-  background: linear-gradient(
-    180deg,
-    #2d0d4f,
-    #751f9a,
-    #b126c7
-  );
+  background: linear-gradient(180deg, #2d0d4f, #751f9a, #b126c7);
 }
 
 .right-panel h1 {

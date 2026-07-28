@@ -8,8 +8,8 @@ import { Main } from '../main/main';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
-export class Dashboard implements OnInit{
-   isLeftSidebarCollapsed = signal<boolean>(false);
+export class Dashboard implements OnInit {
+  isLeftSidebarCollapsed = signal<boolean>(false);
   screenWidth = signal<number>(window.innerWidth);
 
   @HostListener('window:resize')

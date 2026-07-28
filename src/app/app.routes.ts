@@ -39,38 +39,36 @@ export const routes: Routes = [
     children: [
       {
         path: 'products',
-        component: Products
+        component: Products,
       },
       {
         path: 'add-products',
-        component: AddProduct
+        component: AddProduct,
       },
       {
         path: 'edit-product/:id',
-        component: AddProduct
+        component: AddProduct,
       },
       {
         path: 'users',
-        component: Users
+        component: Users,
       },
       {
         path: 'dashbaord-slider',
-        component: DashboardSliders
+        component: DashboardSliders,
       },
       {
         path: 'user-profile',
-        component: Userprofile
+        component: Userprofile,
       },
       {
         path: 'bulk-upload',
-        component: BulkUpload
+        component: BulkUpload,
       },
       {
         path: 'view-product',
-        component: ViewProduct
-      }
-    ]
-  }
-
+        component: ViewProduct,
+      },
+    ],
+  },
 ];
-
