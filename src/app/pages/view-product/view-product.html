@@ -1,0 +1,142 @@
+<div *ngIf="loading" class="skeleton-container">
+  <div class="skeleton-image"></div>
+
+  <div class="skeleton-content">
+    <div class="skeleton title"></div>
+    <div class="skeleton subtitle"></div>
+    <div class="skeleton subtitle"></div>
+    <div class="skeleton large"></div>
+  </div>
+</div>
+
+<div class="product-view-container">
+  <div class="product-header-card">
+    <div class="image-section">
+      <img
+        [src]="product.thumbnail"
+        alt="Product Image"
+        class="main-image">
+    </div>
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      <div class="badge-section">
+        <span class="brand-badge">
+          {{ product.brand }}
+        </span>
+        <span class="stock-badge">
+          {{ product.availabilityStatus }}
+        </span>
+      </div>
+      <div class="price-section">
+        <span class="price">
+          ${{ product.price }}
+        </span>
+        <span class="discount">
+          {{ product.discountPercentage }}% OFF
+        </span>
+      </div>
+      <div class="info-grid">
+        <div>
+          <strong>Category</strong>
+          <p>{{ product.category }}</p>
+        </div>
+        <div>
+          <strong>SKU</strong>
+          <p>{{ product.sku }}</p>
+        </div>
+        <div>
+          <strong>Rating</strong>
+          <p>⭐ {{ product.rating }}</p>
+        </div>
+        <div>
+          <strong>Stock</strong>
+          <p>{{ product.stock }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Description -->
+  <div class="details-card">
+    <h3>Description</h3>
+    <p>
+      {{ product.description }}
+    </p>
+  </div>
+  <!-- Inventory -->
+  <div class="details-card">
+    <h3>Inventory & Pricing</h3>
+    <div class="details-grid">
+      <div>
+        Price
+      </div>
+      <div>
+        ${{ product.price }}
+      </div>
+      <div>
+        Discount
+      </div>
+      <div>
+        {{ product.discountPercentage }}%
+      </div>
+      <div>
+        Stock
+      </div>
+      <div>
+        {{ product.stock }}
+      </div>
+      <div>
+        Minimum Order
+      </div>
+      <div>
+        {{ product.minimumOrderQuantity }}
+      </div>
+    </div>
+  </div>
+  <!-- Dimensions -->
+  <div class="details-card">
+    <h3>Dimensions & Weight</h3>
+    <div class="details-grid">
+      <div>Width</div>
+      <div>{{ product.dimensions.width }}</div>
+      <div>Height</div>
+      <div>{{ product.dimensions.height }}</div>
+      <div>Depth</div>
+      <div>{{ product.dimensions.depth }}</div>
+      <div>Weight</div>
+      <div>{{ product.weight }} Kg</div>
+    </div>
+  </div>
+  <!-- Policies -->
+  <div class="details-card">
+    <h3>Warranty & Shipping</h3>
+    <div class="details-grid">
+      <div>Warranty</div>
+      <div>{{ product.warrantyInformation }}</div>
+      <div>Shipping</div>
+      <div>{{ product.shippingInformation }}</div>
+      <div>Return Policy</div>
+      <div>{{ product.returnPolicy }}</div>
+    </div>
+  </div>
+  <!-- Tags -->
+  <div class="details-card">
+    <h3>Tags</h3>
+    <div class="tag-container">
+      <span
+        class="tag"
+        *ngFor="let tag of product.tags">
+        {{ tag }}
+      </span>
+    </div>
+  </div>
+  <!-- Gallery -->
+  <div class="details-card">
+    <h3>Product Gallery</h3>
+    <div class="gallery">
+      <img
+        *ngFor="let image of product.images"
+        [src]="image"
+        class="gallery-image">
+    </div>
+  </div>
+</div>

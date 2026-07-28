@@ -869,3 +869,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.clickable-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clickable-row:hover {
+  background: #f8fafc;
+}
+

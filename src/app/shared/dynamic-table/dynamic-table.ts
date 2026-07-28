@@ -21,6 +21,7 @@ import { TooltipModule } from 'primeng/tooltip';
 })
 export class DynamicTable {
   @Input() title = '';
+  @Input() viewPageUrl = '';
   @Input() columns: TableColumn[] = [];
   @Input() data: any[] = [];
   @Input() showAddButton = false;
@@ -49,10 +50,13 @@ export class DynamicTable {
     changes: SimpleChanges
   ): void {
 
+    console.log("webvjhwrv")
     console.log(
       'Dynamic Table Data',
       this.data
     );
+
+      console.log("this.viewPageUrl");
 
   }
 
@@ -160,4 +164,16 @@ export class DynamicTable {
     return image;
 
   }
+  viewProduct(product: any): void {
+    console.log("product",product);
+  this.router.navigate(
+    [`${this.viewPageUrl}`],
+    {
+      queryParams: {
+        id: product.id
+      }
+    }
+  );
+}
+
 }

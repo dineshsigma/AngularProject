@@ -19,6 +19,7 @@ import { LifeCycle } from './life-cycle/life-cycle';
 import { Userprofile } from './userprofile/userprofile';
 import { authGuard } from './guards/auth-guard';
 import { BulkUpload } from './pages/bulk-upload/bulk-upload';
+import { ViewProduct } from './pages/view-product/view-product';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -65,6 +66,10 @@ export const routes: Routes = [
       {
         path: 'bulk-upload',
         component: BulkUpload
+      },
+      {
+        path: 'view-product',
+        component: ViewProduct
       }
     ]
   }

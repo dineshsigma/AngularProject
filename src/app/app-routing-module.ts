@@ -21,6 +21,7 @@ import { ReactiveForm } from './pages/reactive-form/reactive-form';
 import { LifeCycle } from './life-cycle/life-cycle';
 import { Userprofile } from './userprofile/userprofile';
 import { BulkUpload } from './pages/bulk-upload/bulk-upload';
+import { ViewProduct } from './pages/view-product/view-product';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: 'bulk-upload',
         component: BulkUpload
+      },
+       {
+        path: 'view-product',
+        component: ViewProduct
       }
     ]
   },

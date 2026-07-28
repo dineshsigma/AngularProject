@@ -21,6 +21,7 @@ export class Products implements OnInit {
   loading = false;
   searchText = '';
   rediectUrl = "/add-products";
+  viewPageUrl='view-product'
 
   editProductData:any={}
 
