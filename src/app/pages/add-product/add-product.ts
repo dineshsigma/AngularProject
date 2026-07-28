@@ -71,8 +71,7 @@ export class AddProduct implements OnInit {
     this.loading = true;
     this.productService.getProductById(id)
       .subscribe({
-        next: (res: any) => {
-          console.log('res', res);
+        next: (res) => {
           this.productForm.patchValue({
             ...res,
             width: res?.dimensions?.width,
@@ -82,7 +81,7 @@ export class AddProduct implements OnInit {
           });
           this.loading = false;
         },
-        error: (error: any) => {
+        error: (error) => {
           console.log(error);
           this.loading = false;
           this.messageService.add({
@@ -100,7 +99,7 @@ export class AddProduct implements OnInit {
     console.log("this.productForm", this.productForm.value);
     this.loading = true;
     this.productService.addProducts(this.productForm.value).subscribe({
-      next: (res: any) => {
+      next: () => {
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -111,7 +110,7 @@ export class AddProduct implements OnInit {
           this.router.navigate(['/products']);
         }, 1500);
 
-      }, error: (error: any) => {
+      }, error: (error) => {
         console.log("error", error.error.message);
         this.loading = false;
         this.messageService.add({
