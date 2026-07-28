@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -43,7 +43,6 @@ export class Registartion {
 ];
 
   ngOnInit(): void {
-
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -65,14 +64,12 @@ export class Registartion {
       return;
     }
 
-    console.log("this.registerForm.value",this.registerForm.value);
+    // console.log("this.registerForm.value",this.registerForm.value);
 
     this.authService.register(this.registerForm.value)
       .subscribe({
-        next: (res: any) => {
-
+        next: () => {
           this.toastr.success('Registration Successful');
-
           setTimeout(() => {
             this.router.navigate(['/login']);
           }, 1000);

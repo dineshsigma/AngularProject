@@ -171,9 +171,18 @@
 }
 
 .field-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #6b7280;
-  margin-bottom: 4px;
   display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 150px;
+  font-weight: 700;
+}
+
+.profile-item span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
 }
