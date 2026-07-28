@@ -24,7 +24,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let job of paginatedJobs">
+        @for (job of paginatedJobs; track job.id) {
+        <tr>
           <td>{{ job.id }}</td>
           <td>{{ job.ian }}</td>
           <td>{{ job.version }}</td>
@@ -44,6 +45,7 @@
           <td>{{ job.file_name }}</td>
           <td>{{ job.createdAt | date: 'short' }}</td>
         </tr>
+        }
       </tbody>
     </table>
   </div>

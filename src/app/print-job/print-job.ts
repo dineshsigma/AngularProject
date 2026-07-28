@@ -13,13 +13,11 @@ import { FormsModule } from '@angular/forms';
 export class PrintJob implements OnInit {
   jobs: any[] = [];
   filteredJobs: any[] = [];
-  loading = false; // ✅ LOADER FLAG
+  loading = false; 
 
-  // ✅ Pagination
+
   page = 1;
   pageSize = 10;
-
-  // ✅ Search
   searchText = '';
 
   constructor(private service: PrintJobService) {}
