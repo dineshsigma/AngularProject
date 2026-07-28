@@ -37,7 +37,7 @@ export class Login implements OnInit {
     }
     this.loading = true;
     this.authService.logindummyApi(this.loginForm.value).subscribe({
-      next: (res: any) => {
+      next: (res) => {
         this.authService.saveUserData(res);
         this.messageService.add({
           severity: 'success',
@@ -49,7 +49,7 @@ export class Login implements OnInit {
           this.router.navigate(['/dashbaord-slider']);
         }, 1500);
 
-      }, error: (error: any) => {
+      }, error: (error) => {
         console.log("error", error.error.message);
         this.loading = false;
         this.messageService.add({

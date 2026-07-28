@@ -1,10 +1,12 @@
-<div *ngIf="loading" class="login-loader-overlay">
-  <div class="loader-container">
-    <div class="spinner"></div>
-    <h5>Please wait...</h5>
-    <p>Authenticating user</p>
+@if (loading) {
+  <div class="login-loader-overlay">
+    <div class="loader-container">
+      <div class="spinner"></div>
+      <h5>Please wait...</h5>
+      <p>Authenticating user</p>
+    </div>
   </div>
-</div>
+}
 
 <div class="container-fluid login-wrapper">
   <div class="card login-card" [class.blur-content]="loading">
@@ -26,7 +28,7 @@
           <div class="mb-4">
             <input type="password" class="form-control custom-input" placeholder="Password" formControlName="password">
           </div>
-           <div class="validation-error">
+          <div class="validation-error">
             @if(loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].touched){
             <span><i class="fas fa-exclamation-circle"></i>Password is required</span>
             }
@@ -39,9 +41,11 @@
             <a href="#">Forgot Password?</a>
           </div>
           <button class="btn login-btn w-100" type="submit" [disabled]="loading">
-            <span *ngIf="!loading"> Log In</span>
-            <span *ngIf="loading"> Logging In...</span>
-          
+            @if(!loading){
+              <span> Log In</span>
+            }@else{
+              <span > Logging In...</span>
+            }
           </button>
         </form>
       </div>
