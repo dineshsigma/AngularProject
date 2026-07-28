@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { Home } from './home/home';
 import { About } from './about/about';
 import { Registartion } from './registartion/registartion';
@@ -7,7 +6,6 @@ import { Parent } from './parent/parent';
 import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
-import { DataBinding } from './data-binding/data-binding';
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';

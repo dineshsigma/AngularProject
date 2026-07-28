@@ -2,7 +2,6 @@ import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
-import { DataTable } from '../shared/data-table/data-table';
 import { Productservice } from '../services/productservice';
 import { CommonModule } from '@angular/common';
 import { TableColumn } from '../models/table-column.model';

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Home } from './home/home';
 import { About } from './about/about';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,8 +8,6 @@ import { Employee } from './employee/employee';
 import { PrintJob } from './print-job/print-job';
 import { Login } from './login/login';
 import { authGuard } from './guards/auth-guard';
-import { DataBinding } from './data-binding/data-binding';
-import { NgIf } from './ng-if/ng-if';
 import { Dashboard } from './dashboard/dashboard';
 import { Products } from './products/products';
 import { AddProduct } from './pages/add-product/add-product';
