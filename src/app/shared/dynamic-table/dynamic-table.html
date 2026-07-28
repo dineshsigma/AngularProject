@@ -50,7 +50,7 @@
             <tr *ngFor="let row of data" class="clickable-row"  (click)="viewProduct(row)">
               <td *ngFor="let column of columns">
                 <ng-container [ngSwitch]="column.type">
-                  <img *ngSwitchCase="'image'" [src]="getImageSource(row[column.field])" class="table-image">
+                  <img *ngSwitchCase="'image'" [src]="getImageSource(row[column.field])" class="table-image" alt="Image">
                   <span *ngSwitchCase="'currency'">
                     ₹{{ row[column.field] }}
                   </span>
