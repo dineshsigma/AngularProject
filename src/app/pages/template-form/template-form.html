@@ -3,7 +3,7 @@
 
   <form #form="ngForm" class="row g-3 needs-validation" novalidate>
     <div class="col-md-4">
-      <label class="form-label">First name<span class="text-danger">*</span></label>
+      <label for="firstName" class="form-label">First name<span class="text-danger">*</span></label>
       <input
         type="text"
         [(ngModel)]="userObj.firstName"
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <label class="form-label">Last name<span class="text-danger">*</span></label>
+      <label  for="lastName" class="form-label">Last name<span class="text-danger">*</span></label>
       <input
         type="text"
         [(ngModel)]="userObj.lastName"
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <label class="form-label">Username<span class="text-danger">*</span></label>
+      <label for="userName"  class="form-label">Username<span class="text-danger">*</span></label>
 
       <input
         type="text"
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <label class="form-label">City<span class="text-danger">*</span></label>
+      <label for="city"  class="form-label">City<span class="text-danger">*</span></label>
       <input
         type="text"
         [(ngModel)]="userObj.city"
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <label class="form-label">State<span class="text-danger">*</span></label>
+      <label for="state"  class="form-label">State<span class="text-danger">*</span></label>
       <select
         class="form-select"
         [(ngModel)]="userObj.state"
@@ -88,7 +88,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <label class="form-label">Zip<span class="text-danger">*</span></label>
+      <label for="zip"  class="form-label">Zip<span class="text-danger">*</span></label>
       <input
         type="text"
         [(ngModel)]="userObj.ZipCode"
@@ -112,7 +112,7 @@
           type="checkbox"
           required
         />
-        <label class="form-check-label" for="invalidCheck"> Agree to terms and conditions </label>
+        <label for="isAgreeTerm" class="form-check-label" for="invalidCheck"> Agree to terms and conditions </label>
         <div class="invalid-feedback">You must agree before submitting.</div>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit,inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Productservice } from '../../services/productservice';
 import { CommonModule } from '@angular/common';
@@ -13,13 +12,8 @@ export class ViewProduct implements OnInit {
   product: any = {};
 
   loading = true;
-
-  constructor(
-    private routes: Router,
-    private route: ActivatedRoute,
-    private productService: Productservice
-  ) {}
-
+  private readonly route = inject(ActivatedRoute);
+  private  readonly productService = inject(Productservice);
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const productId = params['id'];

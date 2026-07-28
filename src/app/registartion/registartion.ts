@@ -15,12 +15,10 @@ import { ToastrService } from 'ngx-toastr';
 export class Registartion {
   registerForm!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: Auth,
-    private toastr: ToastrService,
-    private router: Router
-  ) {}
+  private readonly fb = inject(FormBuilder);
+  private readonly authService = inject(Auth);
+  private readonly toastr = inject(ToastrService);
+  private readonly router =  inject(Router);
 
   roles = [
     {

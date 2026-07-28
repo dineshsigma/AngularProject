@@ -1,10 +1,12 @@
-<div *ngIf="loading" class="login-loader-overlay">
+@if(loading){
+<div class="login-loader-overlay">
   <div class="loader-container">
     <div class="spinner"></div>
     <h5>Please wait...</h5>
     <p>Loading ...</p>
   </div>
 </div>
+}
 
 <div class="page-container">
   <div class="page-header">
@@ -12,21 +14,26 @@
       <h4>{{ title }}</h4>
     </div>
 
-    <div *ngIf="showSearch" class="search-container">
+    @if(showSearch){
+    <div class="search-container">
       <div class="search-box">
         <i class="fas fa-search search-icon"></i>
-        <input
-          type="text"
-          placeholder="Search..."
-          [(ngModel)]="searchText"
-          (input)="applySearch()"
-        />
+        <input type="text" placeholder="Search..." [(ngModel)]="searchText" (input)="applySearch()" />
       </div>
     </div>
-    <button *ngIf="showAddButton" class="add-btn" (click)="addRecord()">
+
+    }
+
+    @if(showAddButton){
+    <button class="add-btn" (click)="addRecord()">
       <i class="fas fa-plus"></i>
       {{ addButtonText }}
     </button>
+
+    }
+
+
+
   </div>
   <div class="table-container">
     <div class="table-card">
@@ -41,54 +48,51 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data" class="clickable-row" (click)="viewProduct(row)">
-              <td *ngFor="let column of columns">
+            @for (row of data; track row.id) {
+            <tr class="clickable-row" tabindex="0" (click)="viewProduct(row)" (keydown)="onRowKeyDown($event, row)">
+              @for (column of columns; track column.field) {
+              <td>
                 <ng-container [ngSwitch]="column.type">
-                  <img
-                    *ngSwitchCase="'image'"
-                    [src]="getImageSource(row[column.field])"
-                    class="table-image"
-                    alt="Image"
-                  />
-                  <span *ngSwitchCase="'currency'"> ₹{{ row[column.field] }} </span>
-                  <span
-                    *ngSwitchCase="'badge'"
-                    class="status-badge"
-                    [ngClass]="getBadgeStyle(row[column.field])"
-                  >
+                  <img *ngSwitchCase="'image'" [src]="getImageSource(row[column.field])" class="table-image" alt="" />
+
+                  <span *ngSwitchCase="'currency'">
+                    ₹{{ row[column.field] }}
+                  </span>
+
+                  <span *ngSwitchCase="'badge'" class="status-badge" [ngClass]="getBadgeStyle(row[column.field])">
                     {{ row[column.field] }}
                   </span>
-                  <span
-                    *ngSwitchDefault
-                    class="table-text"
-                    [pTooltip]="
-                      row[column.field] && row[column.field].toString().length > 10
-                        ? row[column.field]
-                        : ''
-                    "
-                    tooltipPosition="top"
-                    tooltipStyleClass="custom-tooltip"
-                  >
+
+                  <span *ngSwitchDefault class="table-text" [pTooltip]="
+                row[column.field]?.toString()?.length > 10
+                  ? row[column.field]
+                  : ''
+              " tooltipPosition="top" tooltipStyleClass="custom-tooltip">
                     {{
-                      row[column.field] && row[column.field].toString().length > 15
-                        ? (row[column.field].toString() | slice: 0 : 15) + '...'
-                        : row[column.field]
+                    row[column.field]?.toString()?.length > 15
+                    ? (row[column.field].toString() | slice : 0 : 15) + '...'
+                    : row[column.field]
                     }}
                   </span>
                 </ng-container>
               </td>
+              }
+
               <td>
                 <div class="action-buttons">
-                  <button class="edit-btn" (click)="editRow(row)">
+                  <button class="edit-btn" (click)="$event.stopPropagation(); editRow(row)">
                     <i class="fas fa-edit"></i>
                   </button>
-                  <button class="delete-btn" (click)="openDeleteModal(row)">
+
+                  <button class="delete-btn" (click)="$event.stopPropagation(); openDeleteModal(row)">
                     <i class="fas fa-trash"></i>
                   </button>
                 </div>
               </td>
             </tr>
+            }
           </tbody>
+
         </table>
       </div>
 
@@ -112,11 +116,7 @@
             {{ totalPages }}
             ({{ totalRecords }} Records)
           </span>
-          <button
-            class="pagination-btn"
-            (click)="nextPage()"
-            [disabled]="currentPage === totalPages"
-          >
+          <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
             Next
             <i class="fas fa-chevron-right"></i>
           </button>
