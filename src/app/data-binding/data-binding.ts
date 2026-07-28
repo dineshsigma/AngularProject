@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class DataBinding {
 
-  firstName :string  = "Dinesh";
-  lastName:string = "Gundelugunta";
-  rollNo:number  =  89898;
-  isActive :boolean  = true;
-  currrentDate : Date =  new Date();
-  myPlaceHolder  :string =  "Enter your fulll name";
-  div1ClassName:string  =  "bg-primary";
-  selectedCity:string = "";
+  firstName  = "Dinesh";
+  lastName = "Gundelugunta";
+  rollNo =  89898;
+  isActive  = true;
+  currrentDate  =  new Date();
+  myPlaceHolder  =  "Enter your fulll name";
+  div1ClassName =  "bg-primary";
+  selectedCity = "";
 
   constructor(){
     console.log(this.firstName,"firstName");
