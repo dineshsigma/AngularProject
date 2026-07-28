@@ -126,4 +126,11 @@ export class DynamicTable {
       },
     });
   }
+
+  onRowKeyDown(event: KeyboardEvent, row: any): void {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    this.viewProduct(row);
+  }
+}
 }
