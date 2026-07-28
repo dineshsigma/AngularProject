@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth } from '../services/auth';
-import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -18,14 +17,10 @@ import { MessageService } from 'primeng/api';
 
 export class Login implements OnInit {
   loginForm!: FormGroup;
-  constructor(
-    private fb: FormBuilder,
-    private authService: Auth,
-    private router: Router,
-    private toastr: ToastrService,
-    private messageService: MessageService
-  ) { }
-
+  private fb = inject(FormBuilder);
+  private authService = inject(Auth);
+  private router = inject(Router);
+  private messageService = inject(MessageService);
   loading = false;
 
   ngOnInit(): void {
@@ -56,7 +51,7 @@ export class Login implements OnInit {
 
       }, error: (error: any) => {
         console.log("error", error.error.message);
-         this.loading = false;
+        this.loading = false;
         this.messageService.add({
           severity: 'error',
           summary: 'Login Failed',

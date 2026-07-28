@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef,inject } from '@angular/core';
 import { DynamicTable } from '../shared/dynamic-table/dynamic-table';
 import { Products } from '../services/products';
 import { TableColumn } from '../models/table-column.model';
@@ -18,9 +18,9 @@ export class Employee implements OnInit {
   loading = false;
   searchText = '';
   rediectUrl = "/add-products"
-  constructor(
-    private productService: Products, private cdr: ChangeDetectorRef
-  ) { }
+
+  private productService = inject(Products);
+  private cdr = inject(ChangeDetectorRef)
 
   employeeColumns: TableColumn[] = [
     {

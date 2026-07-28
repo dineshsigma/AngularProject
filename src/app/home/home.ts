@@ -3,11 +3,7 @@ import {
   Component,
   Input,
   OnInit,
-  OnChanges,
-  SimpleChanges,
-  AfterViewInit,
-  AfterContentInit,
-  OnDestroy
+  AfterViewInit
 } from '@angular/core';
 
 @Component({
@@ -18,8 +14,7 @@ import {
 })
 export class Home implements OnInit, AfterViewInit {
   @Input() userName!: string;
-  intervalId: any;
-
+  
   ngOnInit(): void {
     console.log('ngOnInit called');
     this.startTracking();

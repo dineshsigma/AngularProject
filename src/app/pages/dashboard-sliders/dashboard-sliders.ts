@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {ProgressBar} from '../progress-bar/progress-bar'
 
 @Component({
   selector: 'app-dashboard-sliders',

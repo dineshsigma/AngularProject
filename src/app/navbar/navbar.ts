@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../services/auth';
@@ -10,10 +10,10 @@ import { Auth } from '../services/auth';
   styleUrl: './navbar.css',
 })
 export class Navbar implements OnInit {
-  constructor(private router: Router, private authService: Auth) { }
+  private router = inject(Router);
+  private authService = inject(Auth);
   isDarkMode = false;
   user: any;
-
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
