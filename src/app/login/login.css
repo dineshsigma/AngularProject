@@ -66,7 +66,7 @@
 
 .validation-error {
   min-height: 22px;
-  margin-top: -10px;
+  margin-top: -20px;
   margin-bottom: 12px;
 }
 
@@ -116,17 +116,13 @@
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
-
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(8px);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 9999;
 }
 
@@ -134,25 +130,18 @@
   background: white;
   padding: 30px;
   border-radius: 20px;
-
   min-width: 250px;
-
   text-align: center;
-
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .spinner {
   width: 60px;
   height: 60px;
-
   border: 5px solid #e2e8f0;
   border-top: 5px solid #4361ee;
-
   border-radius: 50%;
-
   margin: 0 auto 20px;
-
   animation: spin 0.8s linear infinite;
 }
 
