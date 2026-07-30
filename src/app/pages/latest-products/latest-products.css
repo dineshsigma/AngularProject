@@ -192,3 +192,17 @@
 .nav-btn:hover {
   background: #f3f4f6;
 }
+
+.products-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.products-container::-webkit-scrollbar {
+  display: none;
+}

@@ -9,10 +9,10 @@
     </div>
   </div>
   <div class="products-wrapper">
-    <button class="nav-btn left">
+    <button class="nav-btn left" (click) = "scrollLeft()">
       <i class="pi pi-chevron-left"></i>
     </button>
-    <div class="products-container">
+    <div  #container  class="products-container">
       <div class="product-card" *ngFor="let item of laptops">
         <div class="discount">
           -22%
@@ -32,7 +32,7 @@
         </p>
       </div>
     </div>
-    <button class="nav-btn right">
+    <button class="nav-btn right" (click) = "scrollRight()">
       <i class="pi pi-chevron-right"></i>
     </button>
 
