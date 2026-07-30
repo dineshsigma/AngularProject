@@ -1,0 +1,194 @@
+.product-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  flex: 1;
+  text-align: center;
+
+  font-size: 42px;
+  font-weight: 700;
+  color: #303030;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters span {
+  color: #808080;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filters button {
+  border: 1px solid #ddd;
+  background: #fff;
+
+  padding: 10px 16px;
+
+  font-weight: 600;
+
+  border-radius: 6px;
+
+  transition: .3s;
+}
+
+.filters button:hover {
+  background: #f3f4f6;
+}
+
+.products-wrapper {
+  position: relative;
+}
+
+.products-container {
+
+  display: flex;
+
+  gap: 20px;
+
+  overflow-x: auto;
+
+  padding: 15px 0;
+
+  scroll-behavior: smooth;
+}
+
+.products-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.products-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.product-card {
+
+  min-width: 280px;
+
+  background: #fff;
+
+  border: 1px solid #eee;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  position: relative;
+
+  transition: all .3s ease;
+}
+
+.product-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.discount {
+
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: #ffc107;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wishlist {
+
+  position: absolute;
+
+  right: 20px;
+  top: 20px;
+
+  color: orange;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.image-box {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.image-box img {
+
+  width: 180px;
+  height: 140px;
+
+  object-fit: contain;
+}
+
+.category {
+  margin-top: 25px;
+  color: #777;
+  font-size: 14px;
+}
+
+.product-card h3 {
+  font-size: 28px;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.stock {
+  color: #666;
+}
+
+.nav-btn {
+
+  position: absolute;
+
+  top: 40%;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  border: 1px solid #ddd;
+
+  background: white;
+
+  z-index: 10;
+}
+
+.left {
+  left: -10px;
+}
+
+.right {
+  right: -10px;
+}
+
+.nav-btn:hover {
+  background: #f3f4f6;
+}

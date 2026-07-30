@@ -18,6 +18,7 @@ import { Userprofile } from './userprofile/userprofile';
 import { authGuard } from './guards/auth-guard';
 import { BulkUpload } from './pages/bulk-upload/bulk-upload';
 import { ViewProduct } from './pages/view-product/view-product';
+import { CoforgeDashbaord } from './pages/coforge-dashbaord/coforge-dashbaord';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -69,6 +70,10 @@ export const routes: Routes = [
         path: 'view-product',
         component: ViewProduct,
       },
+      {
+        path: 'coforge-dashbaord',
+        component: CoforgeDashbaord,
+      }
     ],
   },
 ];

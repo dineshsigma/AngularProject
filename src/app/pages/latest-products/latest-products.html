@@ -1,0 +1,41 @@
+<section class="product-section">
+  <div class="section-header">
+    <h2>LATEST PRODUCTS</h2>
+    <div class="filters">
+      <span>PRICE UNDER</span>
+      <button>40K</button>
+      <button>50K</button>
+      <button>50K +</button>
+    </div>
+  </div>
+  <div class="products-wrapper">
+    <button class="nav-btn left">
+      <i class="pi pi-chevron-left"></i>
+    </button>
+    <div class="products-container">
+      <div class="product-card" *ngFor="let item of laptops">
+        <div class="discount">
+          -22%
+        </div>
+        <i class="pi pi-heart wishlist"></i>
+        <div class="image-box">
+          <img [src]="item.image" [alt]="item.name">
+        </div>
+        <p class="category">
+          Laptops
+        </p>
+        <h3>
+          {{ item.name }}
+        </h3>
+        <p class="stock">
+          Out of stock
+        </p>
+      </div>
+    </div>
+    <button class="nav-btn right">
+      <i class="pi pi-chevron-right"></i>
+    </button>
+
+  </div>
+
+</section>

@@ -27,7 +27,7 @@ export class LeftSidebar {
       label: 'Users',
     },
     {
-      routeLink: '/bulk-upload',
+      routeLink: '/coforge-dashbaord',
       icon: 'fas fa-file-alt',
       label: 'Pages',
     },
