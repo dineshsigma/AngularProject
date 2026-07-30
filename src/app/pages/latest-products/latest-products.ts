@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 })
 export class LatestProducts {
 
+  loading = false;
+
   laptops = [
     {
       id: 1,
