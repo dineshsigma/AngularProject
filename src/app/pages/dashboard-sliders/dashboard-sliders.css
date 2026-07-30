@@ -35,7 +35,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .card-item {
@@ -108,4 +108,8 @@
   .dashboard-cards {
     grid-template-columns: 1fr;
   }
+}
+
+.container{
+    margin-top: 30px;
 }
